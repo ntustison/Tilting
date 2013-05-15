@@ -1,0 +1,7 @@
+#!/usr/bin/env Rscript
+#get the script name (only works when invoked with Rscript).
+library(methods) # this one is critical and should always be included in Rscripts
+options(digits=4)
+library(knitr)
+knit('Rpaper.Rnw')
+system("./compile Rpaper")
