@@ -59,6 +59,10 @@
     \definecolor{listwhite}{gray}{1.0}
     \definecolor{lightcyan}{rgb}{0.88,1,1}
 
+\definecolor{lightcyan}{rgb}{0,0,1}
+\newcommand{\trEdit}[1]{{\color{blue}{#1}}}
+\newcommand{\trDelete}[1]{{\color{blue}\sout{#1}}}
+
 \floatstyle{plain}
 \newfloat{command}{thp}{lop}
 \floatname{command}{Command}
@@ -120,6 +124,7 @@
 \journal{NeuroImage}
 
 \begin{document}
+\SweaveOpts{concordance=TRUE}
 
 
 \begin{frontmatter}
@@ -140,7 +145,7 @@
 \linenumbers
 
 \begin{abstract} 
-Exploration of neuroscience hypotheses have been  enhanced
+Exploration of neuroscience hypotheses \trEdit{has} been  enhanced
 by the increased availability of high-performance computational resources, large-scale
 communal efforts such as the Insight Toolkit and the R statistical project, and
 algorithmic advancements for data transformations and processing. 
@@ -151,13 +156,13 @@ open source distribution, of established packages has significantly
 facilitated these comparative evaluations.  However, complementing the
 recent set of papers pointing to serious methodological and statistical
 bias considerations in neuroimaging research, we point out potential 
-issues associated with a type of measurement bias in comparative algorithmic
+issues associated with \trDelete{a type of} measurement bias in comparative algorithmic
 evaluations and propose a set of guidelines for authors and reviewers
 to minimize this confound.  We also illustrate these guidelines
 through the use of a recent real-world scenario.
 \end{abstract}
 \begin{keyword}
-open science \sep reproducibility 
+open science \sep reproducibility  \sep \trEdit{software} \sep \trEdit{instrument bias}
 %% keywords here, in the form: keyword \sep keyword
 \end{keyword}
 
@@ -195,7 +200,7 @@ open science \sep reproducibility
 
 \section{Introduction}
 The neuroscience community has significantly benefitted from the proliferation
-of imaging software.  Established packages such as SPM \cite{Ashburner2012},
+of imaging\trEdit{-related} software.  Established packages such as SPM \cite{Ashburner2012},
 the FMRIB Software Library (FSL) \cite{Jenkinson2012}, and
 the AFNI toolkit \cite{cox2012} have aided neuroimaging researchers 
 around the world in performing complex analyses as part of 
@@ -205,29 +210,30 @@ in analysis tools.
 
 As fellow scientists who actively participate in this 
 research through our many contributions to the Insight
-Toolkit and other packages such as the Advanced Normalization Tools (ANTs),%
+Toolkit \trEdit{[REF]} and other packages such as the Advanced Normalization Tools (ANTs),%
 \footnote{
 http://www.picsl.upenn.edu/ANTs
 } 
-we have noticed several publications in which a principle
-component involves the comparison of algorithms.  One of our
-concerns is the lack of detail with which these comparisons are
+we have noticed \trDelete{several}\trEdit{an increasing number of} publications in which a \trDelete{principle}\trEdit{principal}
+component involves the comparison of algorithms\trEdit{, which in priciple is
+  a good thing}.  \trDelete{One of our
+concerns is}\trEdit{We are concerned, however, by} the lack of detail with which these comparisons are
 often presented and the corresponding possibility of {\it instrumentation
 bias} \cite{sackett1979} (considering software  as a type of 
 instrument requiring proper ``calibration'' for accurate measurements).  
-Based on our experience (including mistakes that we have made), 
+Based on our experience (including mistakes that we \trEdit{ourselves} have made), 
 we propose an initial set of guidelines for minimal
 reporting of algorithmic usage to minimize such bias, understanding that 
 the discussion will hopefully 
 elicit a much more comprehensive response from the larger community.
 
-Although previous articles have discussed similar concerns, oftentimes
-within a much larger context (e.g. fMRI reporting \cite{poldrack2008}), 
-we are particularly interested in comparative evaluations of software
+\trDelete{Although} \trEdit{Previous} articles have discussed similar concerns, oftentimes
+within a \trDelete{much larger} \trEdit{specific application} context (e.g. fMRI reporting \cite{poldrack2008}), 
+we are \trDelete{particularly}\trEdit{more generally} interested in comparative evaluations of software
 and provide additional discussion through experience and actual 
 examples found within the literature in addition to our own small,
 yet important, real world scenario.
-It is hoped that this commentary serves to raise awareness to both 
+It is hoped that this commentary serves to raise awareness \trDelete{to}\trEdit{of} both 
 authors and reviewers to such problematic issues (not unlike other
 recent articles detailing additional potential sources of methodological 
 bias \cite{kriegeskorte2009,vul2012,tustison2012}).
@@ -236,8 +242,8 @@ bias \cite{kriegeskorte2009,vul2012,tustison2012}).
 \section{Guidelines}
 A solid evaluation is essential to a paper's longevity and
 impact.  This requires effort in both planning the evaluation (before any
-experiment is performed) and in publishing the evaluation.
-We suggest general guidelines for both of these steps most of which
+experiment is performed) and in publishing \trDelete{the evaluation}\trEdit{its details and results}.
+\trDelete{We}\trEdit{Here, we} suggest general guidelines for both of these steps most of which
 derive from basic scientific principles of clarity and reproducibility.
 
 \subsection{Designing the Evaluation Study}
@@ -245,20 +251,20 @@ derive from basic scientific principles of clarity and reproducibility.
 
 \subsubsection{Define the Algorithm's Context}
 The only algorithm that is capable of outperforming all others on all
-problems is exhaustive search.  Therefore, many algorithms employ
+problems is exhaustive search\trEdit{, assuming a perfect objective function}.\trDelete{Therefore}\trEdit{As this is not feasible in practice}, many algorithms employ
 prior knowledge such as regularization or other heuristics that
-restrict the search space.  The very idea that one, for instance,
-registration algorithm should be better than all other algorithms on
-all types of data is fundamentally flawed.  Indeed, the No Free Lunch
-Theorems \cite{Wolpert1997} provide bounds on solution quality that show otherwise
-i.e. specifically that ``improvement of performance in problem-solving hinges on using prior information to match procedures to problems.''    
+restrict the search space.  The very idea that one\trDelete{, for instance,
+registration}\trEdit{(e.g., registration)} algorithm \trDelete{should be}\trEdit{could perform} better than all other algorithms on
+all types of data is fundamentally flawed.  Indeed, the \trEdit{``}No Free Lunch
+Theorems\trEdit{''} \trDelete{\cite{Wolpert1997}} provide bounds on solution quality that show otherwise
+i.e. specifically that ``improvement of performance in problem-solving hinges on using prior information to match procedures to problems.''\trEdit{\cite{Wolpert1997}}
 
 
 \subsubsection{Hassle the developers for a set of default parameters.}
 Expert knowledge of a specific program and/or algorithm is most
 likely found with the original developers who would be in a position to
 provide optimal parameterization.
-Developers should also facilitate
+Developers should \trDelete{also}\trEdit{actively} facilitate
 comparisons by providing default parameter files, sample scripts, 
 or possible command line calls.  For example, the developers of
 the image registration program elastix \cite{klein2010} provide an
@@ -272,7 +278,7 @@ any publications which used that specific parameter file.  Additionally,
 other packages are associated with discussion forums where users can
 query regarding usage.
 
-\subsubsection{Do not code up your own version of the algorithm particularly 
+\subsubsection{Do not \trDelete{code up}\trEdit{implement} your own version of the algorithm particularly 
 if one is available from the original authors.  If you do, be sure to make
 your implementation available.}
 
@@ -285,7 +291,7 @@ of the code.  Unfortunately, as observed in \cite{kovacevic2006}
 this is often not the case (even in terms of pseudocode).
 As a result, comparative evaluations are sometimes carried out using 
 code developed not by the original authors but rather the 
-group doing the comparison.  This is not ideal as it questionable
+group doing the comparison.  This is not ideal as it \trEdit{is} questionable
 whether or not the authors have sufficient motivation to ensure that
 their instantiation of the algorithm is working correctly. For
 example, in \cite{clarkson2011}, the authors compared three algorithms
@@ -295,7 +301,7 @@ the original authors although not advertised as such) while the third,
 Freesurfer \cite{fischl2012}, was used ``off the shelf'' having been extensively 
 tuned and well-documented by the original authors.  
 Thus, a natural question to ask is whether the performance difference
-is due to the algorithm itself or the implementation.
+is due to the algorithm itself\trEdit{,} \trDelete{or} the implementation\trEdit{, or the parameter tuning}.
 
 
 \subsubsection{Co-authors should verify findings.}
@@ -353,7 +359,7 @@ analysis on public data.
 A best practice exemplar of comparative evaluation studies
 is the work by Klein et al. \cite{Klein2009} in which
 14 nonlinear registration algorithms were compared using
-four publicly available labeled brain data sets.  
+four publicly available\trEdit{,} labeled brain \trEdit{MRI} data sets.  
 As part of the study, the authors themselves tuned 
 the parameters for their algorithm to ensure good
 performance.  As
@@ -412,7 +418,7 @@ It is also available as a module in Slicer,%
 \footnote{
 http://www.slicer.org/slicerWiki/index.php/Documentation/4.2/Modules/N4ITKBiasFieldCorrection
 }
-a wrapper of the slicer module in nipype,%
+a wrapper of the \trEdit{Slicer} module in nipype,%
 \footnote{
 http://www.mit.edu/~satra/nipype-nightly/interfaces/generated/nipype.interfaces.slicer.filtering.n4itkbiasfieldcorrection.html
 }
@@ -429,13 +435,13 @@ code, there could exist subtle variations which can affect performance.
 For example, the parameters governing the spline distance and 
 number of iterations directly affect outcome and should be tuned
 based on application.  However, as a particular case, the \verb#c3d# 
-implementation hard codes
+implementation hard\trEdit{-}codes
 these values with no access to modify them by the user, potentially
 leading to suboptimal performance.
 
 \subsubsection{Provide computational platform details of the evaluation}
 A recent article \cite{gronenschild2012} pointed out significant
-differences in Freesurfer output that varied with Freesurfer release
+differences in \trEdit{FreeSurfer} output that varied with \trDelete{Freesurfer} release
 version and with operating systems.  While the former is to be
 expected given upgrades and bug fixes which occur between releases,
 the latter underscores both the need for consistency in study processing
@@ -563,7 +569,7 @@ ANTs%
 https://github.com/stnava/ANTs
 }
 is distributed using the github web-hosting service
-facilitating developer collaboration.  The version
+\trDelete{facilitating}\trEdit{to facilitate} developer collaboration.  The version
 of the ANTs toolkit that was used for this study 
 was updated on Friday May 3, 2013.%
 \footnote{
@@ -733,10 +739,10 @@ corresponding box plots are given in Figure \ref{fig:results}.
 \end{figure}
 \end{center}
 
-Pairwise Students t-tests were performed for each of the three
-comparisons with Bonferroni correction.
+Pairwise Students t-tests \trEdit{with Bonferroni correction} were performed for each of the three
+comparisons\trDelete{ with Bonferroni correction}.
 For the affine-only Dice value comparison, \verb#antsRegistration# 
-only slightly output performed \verb#ANTS# ($q = 0.053$, mean of the 
+only slightly \trDelete{output} \trEdit{out}performed \verb#ANTS# ($q = 0.053$, mean of the 
 differences = 0.004).  For the comprehensive affine + SyN comparison
 \verb#antsRegistration# yielded higher Dice values ($q = 0.053$, 
 mean of the differences = 0.009).
@@ -762,8 +768,8 @@ producing slightly higher values than its ANTs counterpart
 
 \subsection{ANTS vs. antsRegistration:  Discussion}
 Strictly in terms of the Dice overlap metric, \verb#antsRegistration# yields
-improved results over \verb#ANTS#.  Although the SyN components are theoretically
-the same, implementation with the newer program was constrained to conform
+improved results over \verb#ANTS#.  Although the \trEdit{abstract algorithms implemented by the different} SyN \trEdit{software} components are theoretically
+the same, \trEdit{implementation with} the newer program was constrained to conform
 with the rigorous ITK coding standards and the plug-in architecture of
 the generic registration framework resulting in additional possible
 configurations not in \verb#ANTS#. Additionally, the newer program benefitted
@@ -776,19 +782,28 @@ code.  In contrast, with \verb#antsRegistration# we took a much more general app
 by permitting the user to build up any number of linear ``registration stages'' 
 to produce a final generic affine transform.
 
-Other differences to be considered include the use of real types between the
+Other differences to be considered include the use of real types
+\trEdit{(e.g., single vs. double precision, 80-bit x87 vs. 64-bit IEEE~754  computation)} between the
 two programs and the use of multi-threading.  As regards the former, due to 
 the constraints of certain  internals of ITK,  \verb#antsRegistration#
 is currently implemented using \verb#double# instead of \verb#float#.  This
 results in a larger memory footprint in addition to timing between the two
 programs (single-threaded on a single core on the UVA cluster \verb#antsRegistration#
 can run 3-4 times as long as \verb#ANTS#).  However, multi-threading capabilities
-are much better developed in \verb#antsRegistration#.
+are much better developed in \verb#antsRegistration#. 
+
+\trEdit{[Q: would it be worthwile showing the variability of results with
+  single- vs. double-preecision ANTS? Also, does result change with number of
+  CPUs? That would be interesting to demonstrate also. Finally, using standard
+  vs. SSE double precision?]}
 
 \section{Conclusion}
+
 \epigraph{By honest I don't mean that you only tell what's true. But you make clear the 
 entire situation. You make clear all the information that is required for somebody else 
-who is intelligent to make up their mind.}{Professor Richard Feynman}
+who is intelligent to make up their mind.}{\trDelete{Professor }Richard Feynman}
+\trEdit{[I think the Feynman quote would be much more appropriately positioned
+  at the very beginning of the article, right after the abstract]}
 
 Considering the permeation of the computational sciences in doing 
 nueroimaging research, certain safeguards should be in place to prevent
@@ -834,9 +849,9 @@ for future comparative assessments.
 %  that disconfirms my original belief (that my algorithm is better).
 %  Richard Feynman quote (Cargo Cult Science):  
 %  \begin{quote} 
-%  The first principle [of science] is that you must not fool yourself—--and you are the easiest person to fool. So you have to be very careful about that. After you've not fooled yourself, it's easy not to fool other scientists. You just have to be honest in a conventional way after that.
+%  The first principle [of science] is that you must not fool yourself?--and you are the easiest person to fool. So you have to be very careful about that. After you've not fooled yourself, it's easy not to fool other scientists. You just have to be honest in a conventional way after that.
 %  \end{quote}
-%  \item In ‘The Meaning of It All’ Feynman said, ``By honest I don’t mean that you only tell what’s true. But you make clear the entire situation. You make clear all the information that is required for somebody else who is intelligent to make up their mind.''
+%  \item In ?The Meaning of It All? Feynman said, ``By honest I don?t mean that you only tell what?s true. But you make clear the entire situation. You make clear all the information that is required for somebody else who is intelligent to make up their mind.''
 %  \item One particular aspect of the previous item is that it needs 
 %  to be highlighted if somebody codes up the algorithm
 %  to be compared themselves.  Writing bug-free code is difficult.  Look
