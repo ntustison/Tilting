@@ -207,17 +207,17 @@ open science \sep \added[id=hj]{open data} \sep \added[id=hj]{comparison} \sep r
 
 \section{Introduction}
 The neuroscience community has significantly benefitted from the proliferation
-of imaging\added[id=tr]{-related} software \added[id=hj]{analysis packages}.
+of imaging\added[id=tr]{-related} \replaced[id=hj]{analysis software packages}{software}.
 Established packages such as SPM \cite{Ashburner2012},
 the FMRIB Software Library (FSL) \cite{Jenkinson2012}, \added[id=hj]{Slicer, \cite{SlicerRefNeeded}} and
 the AFNI toolkit \cite{cox2012} have aided neuroimaging researchers 
 around the world in performing complex analyses as part of 
-ongoing neuroscience research.  Parallel to this line of
-inquiry is continued algorithmic innovation for improvement
-in analysis tools.  
+ongoing neuroscience research.
+\replaced[id=hj,remark={I did not know the original intent of this sentence, so I made a new one}]{In conjunction with distributing robust software tools, neuro-imaging packages also continue to incorporate}{Parallel to this line of inquiry is continued}
+algorithmic innovation for improvement
+in analysis tools.
 
-%% I don't unseratnd the next couple of sentences -- It is a bit too abstract.
-As fellow scientists who actively participate in \replaced[id=hj]{neuroscience}{this} 
+As \deleted[id=hj,remark={I don't understand the next couple of sentences -- It is a bit too abstract.}]{fellow} scientists who actively participate in \replaced[id=hj]{neuroscience}{this} \added[id=hj]{} 
 research through our many contributions to the Insight
 Toolkit \added[id=tr]{[REF]} and other packages such as the Advanced Normalization Tools (ANTs),%
 \footnote{
@@ -230,10 +230,10 @@ often presented and the corresponding possibility of {\it instrumentation
 bias} \cite{sackett1979} (considering software  as a type of 
 instrument requiring proper ``calibration'' for accurate measurements).  
 Based on our experience (including mistakes that we \added[id=tr]{ourselves} have made), 
-we propose an initial set of guidelines for minimal
+we propose an \replaced[id=hj]{preliminary}{initial} set of guidelines for minimal
 reporting of algorithmic usage to minimize such bias, understanding that 
-the discussion will hopefully 
-elicit a much more comprehensive response from the larger community.
+the discussion will \replaced[id=hj]{likely}{hopefully}
+elicit a much more comprehensive response from the larger \added[id=hj]{neurosciences} community.
 
 \replaced[id=tr]{Previous}{Although} articles have discussed similar concerns, oftentimes
 within a \replaced[id=tr]{specific application}{much larger} context (e.g. fMRI reporting \cite{poldrack2008}), 
@@ -246,27 +246,28 @@ authors and reviewers to such problematic issues (not unlike other
 recent articles detailing additional potential sources of methodological 
 bias \cite{kriegeskorte2009,vul2012,tustison2012}).
 
-
 \section{Guidelines}
+
+\replaced[id=hj]{A comparative analysis paper's longevity and impact on furture scientific
+exploriations is directly related to the completeness of the evaluation}{
 A solid evaluation is essential to a paper's longevity and
-impact.  This requires effort in both planning the evaluation (before any
-experiment is performed) and in publishing \replaced[id=tr]{its details and results}{the evaluation}.
-\replaced[id=tr]{Here, we}{We} suggest general guidelines for both of these steps most of which
+impact}.  \replaced[id=hj]{A complete evaluation requires prepratory effort}{This requires effort in both planning the evaluation}(before any
+experiment is performed) and \replaced[id=hj]{effort to publish}{in publishing} \replaced[id=tr]{its details and results}{the evaluation}.
+\replaced[id=tr]{Here, we}{We} suggest general guidelines for both of these steps \deleted[id=hj]{most of} which
 derive from basic scientific principles of clarity and reproducibility.
 
 \subsection{Designing the Evaluation Study}
-\subsubsection{Define the Algorithm's Context}
+\subsubsection{\added[id=hj]{Rigourously }Define the Algorithm's Context}
 The only algorithm that is capable of outperforming all others on all
 problems is exhaustive search\added[id=tr]{, assuming a perfect objective function}.\replaced[id=tr]{As this is not feasible in practice}{Therefore}, many algorithms employ
 prior knowledge such as regularization or other heuristics that
-restrict the search space.  The very idea that one\replaced[id=tr]{(e.g., registration)}{, for instance,
+restrict the search space \added[id=hj]{to the relevant parameters for a narrow specified problem}.  The very idea that one\replaced[id=tr]{(e.g., registration)}{, for instance,
 registration} algorithm \replaced[id=tr]{could perform}{should be} better than all other algorithms on
 all types of data is fundamentally flawed.  Indeed, the \added[id=tr]{``}No Free Lunch
 Theorems\replaced[id=tr]{''}{\cite{Wolpert1997}} provide bounds on solution quality that show otherwise
 i.e. specifically that ``improvement of performance in problem-solving hinges on using prior information to match procedures to problems.''\added[id=tr]{\cite{Wolpert1997}}
 
-
-\subsubsection{Hassle the developers for a set of default parameters.}
+\subsubsection{\replaced[id=hj]{Demand that the algorihtm developers provide default parameters for the context being investigated}{Hassle the developers for a set of default parameters}}
 Expert knowledge of a specific program and/or algorithm is most
 likely found with the original developers who would be in a position to
 provide optimal parameterization.
@@ -283,10 +284,10 @@ description (including applied modality and object of interest) and
 any publications which used that specific parameter file.  Additionally,
 other packages are associated with discussion forums where users can
 query regarding usage.
-
+ 
 \subsubsection{Do not \replaced[id=tr]{implement}{code up} your own version of the algorithm particularly 
-if one is available from the original authors.  If you do, be sure to make
-your implementation available.}
+if one is available from the original authors.
+If you \replaced[id=hj]{must re-implment}{do}, \replaced[id=hj]{consider making your implementaiton available}{be sure to make your implementation available.}}
 
 Collective experience in developing software has taught us the 
 difficulty of translating descriptions found in
@@ -308,6 +309,7 @@ Freesurfer \cite{fischl2012}, was used ``off the shelf'' having been extensively
 tuned and well-documented by the original authors.  
 Thus, a natural question to ask is whether the performance difference
 is due to the algorithm itself\replaced[id=tr]{,}{or} the implementation\added[id=tr]{, or the parameter tuning}.
+
 
 
 \subsubsection{Co-authors should verify findings.}
@@ -359,17 +361,18 @@ on a private cohort of Parkinson's disease subject data, reasons
 for performance disparity should be offered and supplemented with
 analysis on public data.
 
+
 \subsection{Publishing the Evaluation}
 
 \subsubsection{Include parameters.}
 A best practice exemplar of comparative evaluation studies
-is the work by Klein et al. \cite{Klein2009} in which
+is the work by Klein et al. \cite{Klein2009} \replaced[id=hj]{where}{in which}
 14 nonlinear registration algorithms were compared using
 four publicly available\added[id=tr]{,} labeled brain \added[id=tr]{MRI} data sets.  
 As part of the study, the authors themselves tuned 
 the parameters for their algorithm to ensure good
 performance.  As
-part of this work, Prof. Klein availed the scripts
+part of this work, Prof. Klein \replaced[id=hj]{distributed}{availed} the scripts
 used for the study on his website.%
 \footnote{
 http://mindboggle.info/papers/evaluation\_NeuroImage2009.php
@@ -535,7 +538,7 @@ However, as part of the recent ITKv4 effort, a new
 program for image registration, known as \verb#antsRegistration#
 has been created and also released within ANTs \cite{avants2012}
 where it continues to be refined (in contrast to \verb#ANTS# which
-has been more or less stable for quite some time).
+has been \deleted[id=hj]{more or less} stable for quite some time).
 
 Motivated by this request and also to provide an example of the 
 guidelines previously presented, we performed a comparison of 
@@ -779,7 +782,7 @@ the same, \added[id=tr]{implementation with} the newer program was constrained t
 with the rigorous ITK coding standards and the plug-in architecture of
 the generic registration framework resulting in additional possible
 configurations not in \verb#ANTS#. Additionally, the newer program benefitted
-from ITK's crowdsourcing of the contributed code (a great example of Linus's Law
+from ITK's crowdsourcing of the contributed code (a great example of Linus \added[id=hj]{Torvold's(SP?)} Law
 in action---"with enough eyeballs, all bugs are shallow").  In contrast to the
 SyN component, the affine components between the two programs differ substantially.
 The parameters governing the affine registration in \verb#ANTS# were specifically 
@@ -798,10 +801,14 @@ programs (single-threaded on a single core on the UVA cluster \verb#antsRegistra
 can run 3-4 times as long as \verb#ANTS#).  However, multi-threading capabilities
 are much better developed in \verb#antsRegistration#. 
 
+
 \added[id=tr]{[Q: would it be worthwile showing the variability of results with
   single- vs. double-preecision ANTS? Also, does result change with number of
   CPUs? That would be interesting to demonstrate also. Finally, using standard
   vs. SSE double precision?]}
+%\added[id=hj]{[Q: As of 2013-05-18 an alpha version of a floating point antsRegistration/ITKv4
+%has been completed, and posted on \url{git@github.com:aghayoor/ANTs-1.git on github}.  This version is building, passing %all old
+%tests, and producing nearly identical results in single precision for a short run ($10x10x10$ iterations) 3 level %registraiton]}
 
 \section{Conclusion}
 
