@@ -59,18 +59,10 @@
     \definecolor{listwhite}{gray}{1.0}
     \definecolor{lightcyan}{rgb}{0.88,1,1}
 
-\definecolor{lightcyan}{rgb}{0,0,1}
-\newcommand{\trEdit}[1]{{\color{blue}{#1}}}
-\newcommand{\trDelete}[1]{{\color{blue}\sout{#1}}}
-
-\definecolor{lightgreen}{rgb}{0,.9,.1}
-\newcommand{\added[id=hj]}[1]{{\color{lightgreen}{#1}}}
-\newcommand{\hjDelete}[1]{{\color{lightgreen}\sout{#1}}}
-
 \usepackage[draft]{changes}
-\definechangesauthor[name={Hans Johnson}, color=orange]{hj}
+\definechangesauthor[name={Hans Johnson}, color=green]{hj}
 \definechangesauthor[name={Torsten Rolfing}, color=red]{tr}
-\definechangesauthor[name={Nick Tustison}, color=green]{nt}
+\definechangesauthor[name={Nick Tustison}, color=orange]{nt}
 \definechangesauthor[name={Brian Avants}, color=purple]{ba}
 
 
@@ -134,8 +126,10 @@
 
 \journal{NeuroImage}
 
+\usepackage{Sweave}
 \begin{document}
 \SweaveOpts{concordance=TRUE}
+\input{Rpaper-concordance}
 
 
 \begin{frontmatter}
@@ -156,26 +150,26 @@
 \linenumbers
 
 \begin{abstract} 
-Exploration of neuroscience hypotheses \trEdit{has} been  enhanced
+Exploration of neuroscience hypotheses \added[id=tr]{has} been  enhanced
 by the increased availability of high-performance computational resources
-\added[id=hj,remark={XSEDE is the new teragrid https://www.xsede.org/ }]{like XSEDE}
-\added[id=hj]{like XSEDE\ref{xcede_web_ref};}\hjDelete{,} large-scale
-communal \added[id=hj]{development} efforts such as the Insight Toolkit, and the R statistical project\hjDelete{,}\added[id=hj]{;} and
+\replaced[id=hj,remark={XSEDE is the new teragrid https://www.xsede.org/ }]{like XSEDE\ref{xcede_web_ref};}{,} large-scale
+communal \added[id=hj]{development} efforts such as the Insight Toolkit, and the R statistical project\replaced[id=hj]{;}{,} and
 algorithmic advancements for data transformations and processing. 
-An integral component of \hjDelete{the} \added[id=hj]{a rigorous} vetting process for
+An integral component of \replaced[id=hj]{a rigorous}{the} vetting process for
 novel algorithmic techniques includes comparison with other methods previously
-established within the community.  Public availability, \hjDelete{including 
+established within the community.  Public availability, \deleted[id=hj]{including 
 open source distribution,} of established packages has significantly 
 facilitated these comparative evaluations\added[id=hj]{, particularly when the packages
 provide access to an open source distribution and are indexed in a resource like the Neuro-informatics Tools and Resources Clearinghouse \cite{NITRC_CITE_HERE}}.  However, complementing the
 recent set of papers pointing to serious methodological and statistical
 bias considerations in neuroimaging research, we point out potential 
-issues associated with \trDelete{a type of} measurement bias in comparative algorithmic
-evaluations\added[id=hj]{.} \hjDelete{and } \added[id=hj]{In this paper we} propose a set of guidelines for authors and reviewers to minimize \hjDelete{this confound} \added[id=hj]{these evaluation biases}.  \hjDelete{We also} \added[id=hj]{Finally we} illustrate these guidelines
+issues associated with \deleted[id=tr]{a type of} measurement bias in comparative algorithmic
+evaluations\replaced[id=hj]{.}{and } \added[id=hj]{In this paper we} propose a set of guidelines for authors and reviewers to minimize \replaced[id=hj]{these evaluation biases}{this confound}.
+\replaced[id=hj]{Finally we}{We also} illustrate these guidelines
 through the use of a recent real-world scenario.
 \end{abstract}
 \begin{keyword}
-open science \sep \added[id=hj]{open data} \sep \added[id=hj]{comparison} \sep reproducibility  \sep \trEdit{software} \sep \trEdit{instrument bias}
+open science \sep \added[id=hj]{open data} \sep \added[id=hj]{comparison} \sep reproducibility  \sep \added[id=tr]{software} \sep \added[id=tr]{instrument bias}
 %% keywords here, in the form: keyword \sep keyword
 \end{keyword}
 
@@ -213,7 +207,7 @@ open science \sep \added[id=hj]{open data} \sep \added[id=hj]{comparison} \sep r
 
 \section{Introduction}
 The neuroscience community has significantly benefitted from the proliferation
-of imaging\trEdit{-related} software \added[id=hj]{analysis packages}.
+of imaging\added[id=tr]{-related} software \added[id=hj]{analysis packages}.
 Established packages such as SPM \cite{Ashburner2012},
 the FMRIB Software Library (FSL) \cite{Jenkinson2012}, \added[id=hj]{Slicer, \cite{SlicerRefNeeded}} and
 the AFNI toolkit \cite{cox2012} have aided neuroimaging researchers 
@@ -223,32 +217,31 @@ inquiry is continued algorithmic innovation for improvement
 in analysis tools.  
 
 %% I don't unseratnd the next couple of sentences -- It is a bit too abstract.
-As fellow scientists who actively participate in \hjDelete{this}\added[id=hj]{neuroscience} 
+As fellow scientists who actively participate in \replaced[id=hj]{neuroscience}{this} 
 research through our many contributions to the Insight
-Toolkit \trEdit{[REF]} and other packages such as the Advanced Normalization Tools (ANTs),%
+Toolkit \added[id=tr]{[REF]} and other packages such as the Advanced Normalization Tools (ANTs),%
 \footnote{
 http://www.picsl.upenn.edu/ANTs
 } 
-we have noticed \trDelete{several}\trEdit{an increasing number of} publications in which a \trDelete{principle}\trEdit{principal}
-component involves the comparison of algorithms\trEdit{, which in priciple is
-  a good thing}.  \trDelete{One of our
-concerns is}\trEdit{We are concerned, however, by} the lack of detail with which these comparisons are
+we have noticed \replaced[id=tr]{an increasing number of}{several} publications in which a \replaced[id=tr]{principal}{principle}
+component involves the comparison of algorithms\added[id=tr]{, which in priciple is
+  a good thing}.  \replaced[id=tr]{We are concerned, however, by}{One of our concerns is} the lack of detail with which these comparisons are
 often presented and the corresponding possibility of {\it instrumentation
 bias} \cite{sackett1979} (considering software  as a type of 
 instrument requiring proper ``calibration'' for accurate measurements).  
-Based on our experience (including mistakes that we \trEdit{ourselves} have made), 
+Based on our experience (including mistakes that we \added[id=tr]{ourselves} have made), 
 we propose an initial set of guidelines for minimal
 reporting of algorithmic usage to minimize such bias, understanding that 
 the discussion will hopefully 
 elicit a much more comprehensive response from the larger community.
 
-\trDelete{Although} \trEdit{Previous} articles have discussed similar concerns, oftentimes
-within a \trDelete{much larger} \trEdit{specific application} context (e.g. fMRI reporting \cite{poldrack2008}), 
-we are \trDelete{particularly}\trEdit{more generally} interested in comparative evaluations of software
+\replaced[id=tr]{Previous}{Although} articles have discussed similar concerns, oftentimes
+within a \replaced[id=tr]{specific application}{much larger} context (e.g. fMRI reporting \cite{poldrack2008}), 
+we are \replaced[id=tr]{more generally}{particularly} interested in comparative evaluations of software
 and provide additional discussion through experience and actual 
 examples found within the literature in addition to our own small,
 yet important, real world scenario.
-It is hoped that this commentary serves to raise awareness \trDelete{to}\trEdit{of} both 
+It is hoped that this commentary serves to raise awareness \replaced[id=tr]{of}{to} both 
 authors and reviewers to such problematic issues (not unlike other
 recent articles detailing additional potential sources of methodological 
 bias \cite{kriegeskorte2009,vul2012,tustison2012}).
@@ -257,29 +250,27 @@ bias \cite{kriegeskorte2009,vul2012,tustison2012}).
 \section{Guidelines}
 A solid evaluation is essential to a paper's longevity and
 impact.  This requires effort in both planning the evaluation (before any
-experiment is performed) and in publishing \trDelete{the evaluation}\trEdit{its details and results}.
-\trDelete{We}\trEdit{Here, we} suggest general guidelines for both of these steps most of which
+experiment is performed) and in publishing \replaced[id=tr]{its details and results}{the evaluation}.
+\replaced[id=tr]{Here, we}{We} suggest general guidelines for both of these steps most of which
 derive from basic scientific principles of clarity and reproducibility.
 
 \subsection{Designing the Evaluation Study}
-
-
 \subsubsection{Define the Algorithm's Context}
 The only algorithm that is capable of outperforming all others on all
-problems is exhaustive search\trEdit{, assuming a perfect objective function}.\trDelete{Therefore}\trEdit{As this is not feasible in practice}, many algorithms employ
+problems is exhaustive search\added[id=tr]{, assuming a perfect objective function}.\replaced[id=tr]{As this is not feasible in practice}{Therefore}, many algorithms employ
 prior knowledge such as regularization or other heuristics that
-restrict the search space.  The very idea that one\trDelete{, for instance,
-registration}\trEdit{(e.g., registration)} algorithm \trDelete{should be}\trEdit{could perform} better than all other algorithms on
-all types of data is fundamentally flawed.  Indeed, the \trEdit{``}No Free Lunch
-Theorems\trEdit{''} \trDelete{\cite{Wolpert1997}} provide bounds on solution quality that show otherwise
-i.e. specifically that ``improvement of performance in problem-solving hinges on using prior information to match procedures to problems.''\trEdit{\cite{Wolpert1997}}
+restrict the search space.  The very idea that one\replaced[id=tr]{(e.g., registration)}{, for instance,
+registration} algorithm \replaced[id=tr]{could perform}{should be} better than all other algorithms on
+all types of data is fundamentally flawed.  Indeed, the \added[id=tr]{``}No Free Lunch
+Theorems\replaced[id=tr]{''}{\cite{Wolpert1997}} provide bounds on solution quality that show otherwise
+i.e. specifically that ``improvement of performance in problem-solving hinges on using prior information to match procedures to problems.''\added[id=tr]{\cite{Wolpert1997}}
 
 
 \subsubsection{Hassle the developers for a set of default parameters.}
 Expert knowledge of a specific program and/or algorithm is most
 likely found with the original developers who would be in a position to
 provide optimal parameterization.
-Developers should \trDelete{also}\trEdit{actively} facilitate
+Developers should \replaced[id=tr]{actively}{also} facilitate
 comparisons by providing default parameter files, sample scripts, 
 or possible command line calls.  For example, the developers of
 the image registration program elastix \cite{klein2010} provide an
@@ -293,7 +284,7 @@ any publications which used that specific parameter file.  Additionally,
 other packages are associated with discussion forums where users can
 query regarding usage.
 
-\subsubsection{Do not \trDelete{code up}\trEdit{implement} your own version of the algorithm particularly 
+\subsubsection{Do not \replaced[id=tr]{implement}{code up} your own version of the algorithm particularly 
 if one is available from the original authors.  If you do, be sure to make
 your implementation available.}
 
@@ -306,7 +297,7 @@ of the code.  Unfortunately, as observed in \cite{kovacevic2006}
 this is often not the case (even in terms of pseudocode).
 As a result, comparative evaluations are sometimes carried out using 
 code developed not by the original authors but rather the 
-group doing the comparison.  This is not ideal as it \trEdit{is} questionable
+group doing the comparison.  This is not ideal as it \added[id=tr]{is} questionable
 whether or not the authors have sufficient motivation to ensure that
 their instantiation of the algorithm is working correctly. For
 example, in \cite{clarkson2011}, the authors compared three algorithms
@@ -316,7 +307,7 @@ the original authors although not advertised as such) while the third,
 Freesurfer \cite{fischl2012}, was used ``off the shelf'' having been extensively 
 tuned and well-documented by the original authors.  
 Thus, a natural question to ask is whether the performance difference
-is due to the algorithm itself\trEdit{,} \trDelete{or} the implementation\trEdit{, or the parameter tuning}.
+is due to the algorithm itself\replaced[id=tr]{,}{or} the implementation\added[id=tr]{, or the parameter tuning}.
 
 
 \subsubsection{Co-authors should verify findings.}
@@ -374,7 +365,7 @@ analysis on public data.
 A best practice exemplar of comparative evaluation studies
 is the work by Klein et al. \cite{Klein2009} in which
 14 nonlinear registration algorithms were compared using
-four publicly available\trEdit{,} labeled brain \trEdit{MRI} data sets.  
+four publicly available\added[id=tr]{,} labeled brain \added[id=tr]{MRI} data sets.  
 As part of the study, the authors themselves tuned 
 the parameters for their algorithm to ensure good
 performance.  As
@@ -433,7 +424,7 @@ It is also available as a module in Slicer,%
 \footnote{
 http://www.slicer.org/slicerWiki/index.php/Documentation/4.2/Modules/N4ITKBiasFieldCorrection
 }
-a wrapper of the \trEdit{Slicer} module in nipype,%
+a wrapper of the \added[id=tr]{Slicer} module in nipype,%
 \footnote{
 http://www.mit.edu/~satra/nipype-nightly/interfaces/generated/nipype.interfaces.slicer.filtering.n4itkbiasfieldcorrection.html
 }
@@ -450,13 +441,13 @@ code, there could exist subtle variations which can affect performance.
 For example, the parameters governing the spline distance and 
 number of iterations directly affect outcome and should be tuned
 based on application.  However, as a particular case, the \verb#c3d# 
-implementation hard\trEdit{-}codes
+implementation hard\added[id=tr]{-}codes
 these values with no access to modify them by the user, potentially
 leading to suboptimal performance.
 
 \subsubsection{Provide computational platform details of the evaluation}
 A recent article \cite{gronenschild2012} pointed out significant
-differences in \trEdit{FreeSurfer} output that varied with \trDelete{Freesurfer} release
+differences in \added[id=tr]{FreeSurfer} output that varied with \deleted[id=tr]{Freesurfer} release
 version and with operating systems.  While the former is to be
 expected given upgrades and bug fixes which occur between releases,
 the latter underscores both the need for consistency in study processing
@@ -584,7 +575,7 @@ ANTs%
 https://github.com/stnava/ANTs
 }
 is distributed using the github web-hosting service
-\trDelete{facilitating}\trEdit{to facilitate} developer collaboration.  The version
+\replaced[id=tr]{to facilitate}{facilitating} developer collaboration.  The version
 of the ANTs toolkit that was used for this study 
 was updated on Friday May 3, 2013.%
 \footnote{
@@ -754,10 +745,10 @@ corresponding box plots are given in Figure \ref{fig:results}.
 \end{figure}
 \end{center}
 
-Pairwise Students t-tests \trEdit{with Bonferroni correction} were performed for each of the three
-comparisons\trDelete{ with Bonferroni correction}.
+Pairwise Students t-tests \added[id=tr]{with Bonferroni correction} were performed for each of the three
+comparisons\deleted[id=tr]{ with Bonferroni correction}.
 For the affine-only Dice value comparison, \verb#antsRegistration# 
-only slightly \trDelete{output} \trEdit{out}performed \verb#ANTS# ($q = 0.053$, mean of the 
+only slightly \replaced[id=tr]{outperformed}{output} \verb#ANTS# ($q = 0.053$, mean of the 
 differences = 0.004).  For the comprehensive affine + SyN comparison
 \verb#antsRegistration# yielded higher Dice values ($q = 0.053$, 
 mean of the differences = 0.009).
@@ -783,8 +774,8 @@ producing slightly higher values than its ANTs counterpart
 
 \subsection{ANTS vs. antsRegistration:  Discussion}
 Strictly in terms of the Dice overlap metric, \verb#antsRegistration# yields
-improved results over \verb#ANTS#.  Although the \trEdit{abstract algorithms implemented by the different} SyN \trEdit{software} components are theoretically
-the same, \trEdit{implementation with} the newer program was constrained to conform
+improved results over \verb#ANTS#.  Although the \added[id=tr]{abstract algorithms implemented by the different} SyN \added[id=tr]{software} components are theoretically
+the same, \added[id=tr]{implementation with} the newer program was constrained to conform
 with the rigorous ITK coding standards and the plug-in architecture of
 the generic registration framework resulting in additional possible
 configurations not in \verb#ANTS#. Additionally, the newer program benefitted
@@ -798,7 +789,7 @@ by permitting the user to build up any number of linear ``registration stages''
 to produce a final generic affine transform.
 
 Other differences to be considered include the use of real types
-\trEdit{(e.g., single vs. double precision, 80-bit x87 vs. 64-bit IEEE~754  computation)} between the
+\added[id=tr]{(e.g., single vs. double precision, 80-bit x87 vs. 64-bit IEEE~754  computation)} between the
 two programs and the use of multi-threading.  As regards the former, due to 
 the constraints of certain  internals of ITK,  \verb#antsRegistration#
 is currently implemented using \verb#double# instead of \verb#float#.  This
@@ -807,7 +798,7 @@ programs (single-threaded on a single core on the UVA cluster \verb#antsRegistra
 can run 3-4 times as long as \verb#ANTS#).  However, multi-threading capabilities
 are much better developed in \verb#antsRegistration#. 
 
-\trEdit{[Q: would it be worthwile showing the variability of results with
+\added[id=tr]{[Q: would it be worthwile showing the variability of results with
   single- vs. double-preecision ANTS? Also, does result change with number of
   CPUs? That would be interesting to demonstrate also. Finally, using standard
   vs. SSE double precision?]}
@@ -816,9 +807,9 @@ are much better developed in \verb#antsRegistration#.
 
 \epigraph{By honest I don't mean that you only tell what's true. But you make clear the 
 entire situation. You make clear all the information that is required for somebody else 
-who is intelligent to make up their mind.}{\trDelete{Professor }Richard Feynman}
-\trEdit{[I think the Feynman quote would be much more appropriately positioned
-  at the very beginning of the article, right after the abstract]}
+who is intelligent to make up their mind.}{\deleted[id=tr]{Professor }Richard Feynman}
+\added[id=tr,remark={I think the Feynman quote would be much more appropriately positioned
+  at the very beginning of the article, right after the abstract}]{}
 
 Considering the permeation of the computational sciences in doing 
 nueroimaging research, certain safeguards should be in place to prevent
@@ -980,6 +971,7 @@ for future comparative assessments.
 
 % \end{thebibliography}
 
+\listofchanges
 
 \end{document}
 
