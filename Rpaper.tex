@@ -63,6 +63,10 @@
 \newcommand{\trEdit}[1]{{\color{blue}{#1}}}
 \newcommand{\trDelete}[1]{{\color{blue}\sout{#1}}}
 
+\definecolor{lightgreen}{rgb}{0,.9,.1}
+\newcommand{\hjEdit}[1]{{\color{lightgreen}{#1}}}
+\newcommand{\hjDelete}[1]{{\color{lightgreen}\sout{#1}}}
+
 \floatstyle{plain}
 \newfloat{command}{thp}{lop}
 \floatname{command}{Command}
@@ -147,19 +151,19 @@
 
 \begin{abstract} 
 Exploration of neuroscience hypotheses \trEdit{has} been  enhanced
-by the increased availability of high-performance computational resources, large-scale
-communal efforts such as the Insight Toolkit and the R statistical project, and
+by the increased availability of high-performance computational resources \hjEdit{like XCEDE\ref{xcede_web_ref}}, large-scale
+communal efforts such as the Insight Toolkit \hjEdit{\ref{ITKRefernce}}, \hjEdit{Slicer}, and the R statistical project \hjEdit{\ref{R_ref}}, and
 algorithmic advancements for data transformations and processing. 
-An integral component of the vetting process for novel algorithmic techniques
-includes comparison with other methods previously
-established within the community.  Public availability, including 
-open source distribution, of established packages has significantly 
-facilitated these comparative evaluations.  However, complementing the
+An integral component of \hjDelete{the} \hjEdit{a rigorous} vetting process for
+novel algorithmic techniques includes comparison with other methods previously
+established within the community.  Public availability, \hjDelete{including 
+open source distribution,} of established packages has significantly 
+facilitated these comparative evaluations\hjEdit{, particularly when the packages
+provide access to an open source distribution}.  However, complementing the
 recent set of papers pointing to serious methodological and statistical
 bias considerations in neuroimaging research, we point out potential 
 issues associated with \trDelete{a type of} measurement bias in comparative algorithmic
-evaluations and propose a set of guidelines for authors and reviewers
-to minimize this confound.  We also illustrate these guidelines
+evaluations\hjEdit{.} \hjDelete{and } \hjEdit{In this paper we} propose a set of guidelines for authors and reviewers to minimize \hjDelete{this confound} \hjEdit{these evaluation biases}.  \hjDelete{We also} \hjEdit{Finally we} illustrate these guidelines
 through the use of a recent real-world scenario.
 \end{abstract}
 \begin{keyword}
