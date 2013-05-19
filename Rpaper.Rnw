@@ -43,7 +43,7 @@
 \usepackage{lscape}
 \usepackage{amsmath}
 \usepackage{lineno}
-\usepackage{ulem}
+%%\usepackage{ulem}
 \usepackage{setspace}
 \usepackage{listings}
 \usepackage{float}
@@ -64,8 +64,15 @@
 \newcommand{\trDelete}[1]{{\color{blue}\sout{#1}}}
 
 \definecolor{lightgreen}{rgb}{0,.9,.1}
-\newcommand{\hjEdit}[1]{{\color{lightgreen}{#1}}}
+\newcommand{\added[id=hj]}[1]{{\color{lightgreen}{#1}}}
 \newcommand{\hjDelete}[1]{{\color{lightgreen}\sout{#1}}}
+
+\usepackage[draft]{changes}
+\definechangesauthor[name={Hans Johnson}, color=orange]{hj}
+\definechangesauthor[name={Torsten Rolfing}, color=red]{tr}
+\definechangesauthor[name={Nick Tustison}, color=green]{nt}
+\definechangesauthor[name={Brian Avants}, color=purple]{ba}
+
 
 \floatstyle{plain}
 \newfloat{command}{thp}{lop}
@@ -150,23 +157,25 @@
 
 \begin{abstract} 
 Exploration of neuroscience hypotheses \trEdit{has} been  enhanced
-by the increased availability of high-performance computational resources \hjEdit{like XCEDE\ref{xcede_web_ref};}\hjDelete{,} large-scale
-communal \hjEdit{development} efforts such as the Insight Toolkit, and the R statistical project\hjDelete{,}\hjEdit{;} and
+by the increased availability of high-performance computational resources
+\added[id=hj,remark={XSEDE is the new teragrid https://www.xsede.org/ }]{like XSEDE}
+\added[id=hj]{like XSEDE\ref{xcede_web_ref};}\hjDelete{,} large-scale
+communal \added[id=hj]{development} efforts such as the Insight Toolkit, and the R statistical project\hjDelete{,}\added[id=hj]{;} and
 algorithmic advancements for data transformations and processing. 
-An integral component of \hjDelete{the} \hjEdit{a rigorous} vetting process for
+An integral component of \hjDelete{the} \added[id=hj]{a rigorous} vetting process for
 novel algorithmic techniques includes comparison with other methods previously
 established within the community.  Public availability, \hjDelete{including 
 open source distribution,} of established packages has significantly 
-facilitated these comparative evaluations\hjEdit{, particularly when the packages
+facilitated these comparative evaluations\added[id=hj]{, particularly when the packages
 provide access to an open source distribution and are indexed in a resource like the Neuro-informatics Tools and Resources Clearinghouse \cite{NITRC_CITE_HERE}}.  However, complementing the
 recent set of papers pointing to serious methodological and statistical
 bias considerations in neuroimaging research, we point out potential 
 issues associated with \trDelete{a type of} measurement bias in comparative algorithmic
-evaluations\hjEdit{.} \hjDelete{and } \hjEdit{In this paper we} propose a set of guidelines for authors and reviewers to minimize \hjDelete{this confound} \hjEdit{these evaluation biases}.  \hjDelete{We also} \hjEdit{Finally we} illustrate these guidelines
+evaluations\added[id=hj]{.} \hjDelete{and } \added[id=hj]{In this paper we} propose a set of guidelines for authors and reviewers to minimize \hjDelete{this confound} \added[id=hj]{these evaluation biases}.  \hjDelete{We also} \added[id=hj]{Finally we} illustrate these guidelines
 through the use of a recent real-world scenario.
 \end{abstract}
 \begin{keyword}
-open science \sep \hjEdit{open data} \sep \hjEdit{comparison} \sep reproducibility  \sep \trEdit{software} \sep \trEdit{instrument bias}
+open science \sep \added[id=hj]{open data} \sep \added[id=hj]{comparison} \sep reproducibility  \sep \trEdit{software} \sep \trEdit{instrument bias}
 %% keywords here, in the form: keyword \sep keyword
 \end{keyword}
 
@@ -204,9 +213,9 @@ open science \sep \hjEdit{open data} \sep \hjEdit{comparison} \sep reproducibili
 
 \section{Introduction}
 The neuroscience community has significantly benefitted from the proliferation
-of imaging\trEdit{-related} software \hjEdit{analysis packages}.
+of imaging\trEdit{-related} software \added[id=hj]{analysis packages}.
 Established packages such as SPM \cite{Ashburner2012},
-the FMRIB Software Library (FSL) \cite{Jenkinson2012}, \hjEdit{Slicer, \cite{SlicerRefNeeded}} and
+the FMRIB Software Library (FSL) \cite{Jenkinson2012}, \added[id=hj]{Slicer, \cite{SlicerRefNeeded}} and
 the AFNI toolkit \cite{cox2012} have aided neuroimaging researchers 
 around the world in performing complex analyses as part of 
 ongoing neuroscience research.  Parallel to this line of
@@ -214,7 +223,7 @@ inquiry is continued algorithmic innovation for improvement
 in analysis tools.  
 
 %% I don't unseratnd the next couple of sentences -- It is a bit too abstract.
-As fellow scientists who actively participate in \hjDelete{this}\hjEdit{neuroscience} 
+As fellow scientists who actively participate in \hjDelete{this}\added[id=hj]{neuroscience} 
 research through our many contributions to the Insight
 Toolkit \trEdit{[REF]} and other packages such as the Advanced Normalization Tools (ANTs),%
 \footnote{
