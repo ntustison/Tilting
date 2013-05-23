@@ -155,7 +155,10 @@ novel algorithmic techniques includes comparison with other methods previously
 established within the community.  Public availability, \deleted[id=hj]{including
 open source distribution,} of established packages has significantly
 facilitated these comparative evaluations\added[id=hj]{, particularly when the packages
-provide access to an open source distribution and are indexed in a resource like the Neuro-informatics Tools and Resources Clearinghouse \cite{NITRC_CITE_HERE}}.  However, complementing the
+provide access to an open source distribution and are indexed in a resource like the Neuro-informatics Tools and Resources Clearinghouse}%
+\added[id=nt]{\footnote{
+http://www.nitrc.org
+}}.  However, complementing the
 recent set of papers pointing to serious methodological and statistical
 bias considerations in neuroimaging research, we point out potential
 issues associated with \deleted[id=tr]{a type of} measurement bias in comparative algorithmic
@@ -204,7 +207,7 @@ open science \sep \added[id=hj]{open data} \sep \added[id=hj]{comparison} \sep r
 The neuroscience community has significantly benefitted from the proliferation
 of imaging\added[id=tr]{-related} \replaced[id=hj]{analysis software packages}{software}.
 Established packages such as SPM \cite{Ashburner2012},
-the FMRIB Software Library (FSL) \cite{Jenkinson2012}, \added[id=hj]{Slicer, \cite{SlicerRefNeeded}} and
+the FMRIB Software Library (FSL) \cite{Jenkinson2012}, \added[id=hj]{Slicer, \cite{fedorov2012}} and
 the AFNI toolkit \cite{cox2012} have aided neuroimaging researchers
 around the world in performing complex analyses as part of
 ongoing neuroscience research.
@@ -214,18 +217,20 @@ in analysis tools.
 
 As \deleted[id=hj,remark={I don't understand the next couple of sentences -- It is a bit too abstract.}]{fellow} scientists who actively participate in \replaced[id=hj]{neuroscience}{this} \added[id=hj]{}
 research through our many contributions to the Insight
-Toolkit \added[id=tr]{[REF]} and other packages such as the Advanced Normalization Tools (ANTs),%
+Toolkit
+\added[id=nt]{\cite{johnson2007,tustison2009a,tustison2012a}} 
+and other packages such as the Advanced Normalization Tools (ANTs),%
 \footnote{
 http://www.picsl.upenn.edu/ANTs
 }
 we have noticed \replaced[id=tr]{an increasing number of}{several} publications in which a \replaced[id=tr]{principal}{principle}
-component involves the comparison of algorithms\added[id=tr]{, which in priciple is
-  a good thing}.  \replaced[id=tr]{We are concerned, however, by}{One of our concerns is} the lack of detail with which these comparisons are
+component involves the comparison of algorithms\added[id=tr]{, which in principle is
+a good thing}.  \replaced[id=tr]{We are concerned, however, by}{One of our concerns is} the lack of detail with which these comparisons are
 often presented and the corresponding possibility of {\it instrumentation
 bias} \cite{sackett1979} (considering software  as a type of
 instrument requiring proper ``calibration'' for accurate measurements).
 Based on our experience (including mistakes that we \added[id=tr]{ourselves} have made),
-we propose an \replaced[id=hj]{preliminary}{initial} set of guidelines for minimal
+we propose a \replaced[id=hj]{preliminary}{initial} set of guidelines for minimal
 reporting of algorithmic usage to minimize such bias, understanding that
 the discussion will \replaced[id=hj]{likely}{hopefully}
 elicit a much more comprehensive response from the larger \added[id=hj]{neurosciences} community.
@@ -256,7 +261,7 @@ derive from basic scientific principles of clarity and reproducibility.
 The only algorithm that is capable of outperforming all others on all
 problems is exhaustive search\added[id=tr]{, assuming a perfect objective function}.\replaced[id=tr]{As this is not feasible in practice}{Therefore}, many algorithms employ
 prior knowledge such as regularization or other heuristics that
-restrict the search space \added[id=hj]{to the relevant parameters for a narrow specified problem}.  The very idea that one\replaced[id=tr]{(e.g., registration)}{, for instance,
+restrict the search space \added[id=hj]{to the relevant parameters for a narrow\added[id=nt]{ly} specified problem}.  The very idea that one\replaced[id=tr]{(e.g., registration)}{, for instance,
 registration} algorithm \replaced[id=tr]{could perform}{should be} better than all other algorithms on
 all types of data is fundamentally flawed.  Indeed, the \added[id=tr]{``}No Free Lunch
 Theorems\replaced[id=tr]{''}{\cite{Wolpert1997}} provide bounds on solution quality that show otherwise
@@ -282,7 +287,7 @@ query regarding usage.
 
 \subsubsection{Do not \replaced[id=tr]{implement}{code up} your own version of the algorithm particularly
 if one is available from the original authors.
-If you \replaced[id=hj]{must re-implment}{do}, \replaced[id=hj]{consider making your implementaiton available}{be sure to make your implementation available.}}
+If you \replaced[id=hj]{must re-implement}{do}, \replaced[id=hj]{consider making your implementaiton available}{be sure to make your implementation available.}}
 
 Collective experience in developing software has taught us the
 difficulty of translating descriptions found in
@@ -778,7 +783,7 @@ with the rigorous ITK coding standards and the plug-in architecture of
 the generic registration framework resulting in additional possible
 configurations not in \verb#ANTS#. Additionally, the newer program benefitted
 from ITK's crowdsourcing of the contributed code (a great example of Linus \added[id=hj]{Torvold's(SP?)} Law
-in action---"with enough eyeballs, all bugs are shallow").  In contrast to the
+in action---``with enough eyeballs, all bugs are shallow'').  In contrast to the
 SyN component, the affine components between the two programs differ substantially.
 The parameters governing the affine registration in \verb#ANTS# were specifically
 tailored for brain registration and much of it is hard-coded internally within the
@@ -798,7 +803,7 @@ are much better developed in \verb#antsRegistration#.
 
 
 \added[id=tr]{[Q: would it be worthwile showing the variability of results with
-  single- vs. double-preecision ANTS? Also, does result change with number of
+  single- vs. double-precision ANTS? Also, does result change with number of
   CPUs? That would be interesting to demonstrate also. Finally, using standard
   vs. SSE double precision?]}
 %\added[id=hj]{[Q: As of 2013-05-18 an alpha version of a floating point antsRegistration/ITKv4
