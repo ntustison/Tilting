@@ -151,14 +151,14 @@
 Exploration of neuroscience hypotheses \added[id=tr]{has} been  enhanced
 by the increased availability of high-performance computational resources
 \replaced[id=hj,remark={XSEDE is the new teragrid https://www.xsede.org/ }]{like XSEDE\ref{xcede_web_ref};}{,} large-scale
-communal \added[id=hj]{development} efforts such as the Insight Toolkit, and the R statistical project\replaced[id=hj]{;}{,} and
+\replaced[id=nt]{developmental}{communal \added[id=hj]{development}} efforts such as the Insight Toolkit and the R statistical project\replaced[id=hj]{;}{,} and
 algorithmic advancements for data transformations and processing.
 An integral component of \replaced[id=hj]{a rigorous}{the} vetting process for
 novel algorithmic techniques includes comparison with other methods previously
 established within the community.  Public availability, \deleted[id=hj]{including
 open source distribution,} of established packages has significantly
 facilitated these comparative evaluations\added[id=hj]{, particularly when the packages
-provide access to an open source distribution and are indexed in a resource like the Neuro-informatics Tools and Resources Clearinghouse}%
+provide access to an open source distribution and are indexed in a resource like the \replaced[id=nt]{Neuroimaging Informatics Tools and Resources Clearinghouse}{Neuro-informatics Tools and Resources Clearinghouse}}%
 \added[id=nt]{\footnote{
 http://www.nitrc.org
 }}.  However, complementing the
@@ -298,7 +298,7 @@ query regarding usage.
 
 \subsubsection{Do not \replaced[id=tr]{implement}{code up} your own version of the algorithm particularly
 if one is available from the original authors.
-If you \replaced[id=hj]{must re-implement}{do}, \replaced[id=hj]{consider making your implementaiton available}{be sure to make your implementation available.}}
+If you \replaced[id=hj]{must re-implement}{do}, \replaced[id=hj]{consider making your implementation available}{be sure to make your implementation available.}}
 
 Collective experience in developing software has taught us the
 difficulty of translating descriptions found in
@@ -831,7 +831,7 @@ are much better developed in \verb#antsRegistration#.
   vs. SSE double precision?]}
 %\added[id=hj]{[Q: As of 2013-05-18 an alpha version of a floating point antsRegistration/ITKv4
 %has been completed, and posted on \url{git@github.com:aghayoor/ANTs-1.git on github}.  This version is building, passing %all old
-%tests, and producing nearly identical results in single precision for a short run ($10x10x10$ iterations) 3 level %registraiton]}
+%tests, and producing nearly identical results in single precision for a short run ($10x10x10$ iterations) 3 level %registration]}
 
 \section{Conclusion}
 
