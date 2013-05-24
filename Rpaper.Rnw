@@ -204,15 +204,6 @@ open science \sep \added[id=hj]{open data} \sep \added[id=hj]{comparison} \sep r
 
 %% main text
 
-%\added[id=ak]{
-%\begin{footnote}
-%5. can you get the authors of the offending parkinson's study to share their parameter settings or data or to allow you to set their parameters to re-run their analysis?  this would help provide a solid punchline.
-%
-%6. why not also demonstrate how to properly compare antsRegistration with another package, such as DARTEL or ANIMAL?
-%
-%7. there are noteworthy breaches for each of the subsubsection heading guidelines.  including these would help broaden the scope of the argument beyond the current focus.  i am concerned that readers will get the impression that you are trying to vindicate yourselves after being slighted by another's unfair study.
-%
-%}
 
 
 
@@ -264,11 +255,9 @@ authors and reviewers to such problematic issues (not unlike other
 recent articles detailing additional potential sources of methodological
 bias \cite{kriegeskorte2009,vul2012,tustison2012}).
 
-\section{Guidelines}%
-\footnote{
-\added[id=ak]{
-there are noteworthy breaches for each of the subsubsection heading guidelines.  including these would help broaden the scope of the argument beyond the current focus.  i am concerned that readers will get the impression that you are trying to vindicate yourselves after being slighted by another's unfair study.}
-}
+\section{Guidelines}
+\added[id=ak,remark={
+there are noteworthy breaches for each of the subsubsection heading guidelines.  including these would help broaden the scope of the argument beyond the current focus.  i am concerned that readers will get the impression that you are trying to vindicate yourselves after being slighted by another's unfair study.}]{}
 
 \replaced[id=hj]{A comparative analysis paper's longevity and impact on furture scientific
 exploriations is directly related to the completeness of the evaluation}{
@@ -415,14 +404,9 @@ the left thalamus'' in a cohort of Parkinson's disease patients.
 One of the stated reasons for using ANIMAL was ``because of
 [the authors']
 extensive experience with this technique.''%
-\footnote{
-\added[id=ak]{
-\begin{itemize}
-\item can you get the authors of the offending parkinson's study to share their parameter settings or data or to allow you to set their parameters to re-run their analysis?  this would help provide a solid punchline.
-\item why not also demonstrate how to properly compare antsRegistration with another package, such as DARTEL or ANIMAL?
-\end{itemize}
-}
-}
+\added[id=ak,remark = {
+can you get the authors of the offending parkinson's study to share their parameter settings or data or to allow you to set their parameters to re-run their analysis?  this would help provide a solid punchline.  why not also demonstrate how to properly compare antsRegistration with another package, such as DARTEL or ANIMAL?
+}]{}
   However, for SyN,
 the authors provide no equivalent assurance---no contact
 was made with the primary developers of ANTs (SyN) nor
@@ -542,15 +526,10 @@ the claims of the paper.
 quoting satra ``a published evaluation is old the day the evaluation was done, as most software keeps changing. for example, arno's results were fine at that time with those versions and parameterization of the software, but might be a different story currently.''
 
 \section{Evaluation Example:  ANTS vs. antsRegistration}%
-\footnote{
-\added[id=ak]{
-\begin{itemize}
-\item the ANTs vs. antsRegistration example is pretty involved.  it would make more sense to me if you were to state more clearly that the article is itself an example of what to do (and what not to do) when comparing software implementations of algorithms.  on that note, it would be good to structure this example to correspond closely with the subheading guidelines you offer. 
-\item everything is tuned, somehow.  you've documented what you've done after really everything has been decided.  how did you know how to set the parameters?  why are the ANTs parameters different than in the 2009 evaluation?  how robust are the parameters?  how do we know that after may 3, 2013, everything won't go to hell with a single tweak?
-\item it would be good to show how and when they fail, not just with settings, but with data of different quality (noise, contrast), or how they perform for different modalities or across modalities.  you've done a lot of training and testing on oasis data over the years.  is it possible that you are tailoring / overfitting?  
-\end{itemize}
-}
-}
+\added[id=ak, remark={
+the ANTs vs. antsRegistration example is pretty involved.  it would make more sense to me if you were to state more clearly that the article is itself an example of what to do (and what not to do) when comparing software implementations of algorithms.  on that note, it would be good to structure this example to correspond closely with the subheading guidelines you offer. 
+everything is tuned, somehow.  you've documented what you've done after really everything has been decided.  how did you know how to set the parameters?  why are the ANTs parameters different than in the 2009 evaluation?  how robust are the parameters?  how do we know that after may 3, 2013, everything won't go to hell with a single tweak?
+ it would be good to show how and when they fail, not just with settings, but with data of different quality (noise, contrast), or how they perform for different modalities or across modalities.  you've done a lot of training and testing on oasis data over the years.  is it possible that you are tailoring / overfitting?}]{}
 
 \subsection{ANTS vs. antsRegistration:  Introduction}
 As part of the recent Medical Image Computing and Computer-Aided Intervention
@@ -798,11 +777,9 @@ mean of the differences = 0.009).
 Due to the difference in affine-only outcome, the \verb#ANTS#
 SyN deformable component was run again with initialization from
 the affine output of the \verb#antsRegistration# runs.%
-\footnote{
-\added[id=ak]{
-it seems like cherry picking to choose the better affine result to use for each affine+nonlinear comparison, especially if better is measured by the same criterion for success at the next stage of the evaluation.
-}
-}
+
+\added[id=ak,remark={
+it seems like cherry picking to choose the better affine result to use for each affine+nonlinear comparison, especially if better is measured by the same criterion for success at the next stage of the evaluation.}]{}
   This
 latter set is denoted in Figure \ref{fig:results} as ``ANTS with
 other affine.''  This scenario also showed \verb#antsRegistration# SyN
