@@ -220,7 +220,7 @@ the FMRIB Software Library (FSL) \cite{Jenkinson2012}, \added[id=hj]{Slicer, \ci
 the AFNI toolkit \cite{cox2012} have aided neuroimaging researchers
 around the world in performing complex analyses as part of
 ongoing neuroscience research.
-\replaced[id=hj,remark={I did not know the original intent of this sentence, so I made a new one}]{In conjunction with distributing robust software tools, neuro-imaging packages also continue to incorporate}{Parallel to this line of inquiry is continued}
+\replaced[id=hj,remark={I did not know the original intent of this sentence, so I made a new one}]{In conjunction with distributing robust software tools, neuroimaging packages also continue to incorporate}{Parallel to this line of inquiry is continued}
 algorithmic innovation for improvement
 in analysis tools.
 
@@ -259,10 +259,10 @@ bias \cite{kriegeskorte2009,vul2012,tustison2012}).
 \added[id=ak,remark={
 there are noteworthy breaches for each of the subsubsection heading guidelines.  including these would help broaden the scope of the argument beyond the current focus.  i am concerned that readers will get the impression that you are trying to vindicate yourselves after being slighted by another's unfair study.}]{}
 
-\replaced[id=hj]{A comparative analysis paper's longevity and impact on furture scientific
-exploriations is directly related to the completeness of the evaluation}{
+\replaced[id=hj]{A comparative analysis paper's longevity and impact on future scientific
+explorations is directly related to the completeness of the evaluation}{
 A solid evaluation is essential to a paper's longevity and
-impact}.  \replaced[id=hj]{A complete evaluation requires prepratory effort}{This requires effort in both planning the evaluation}(before any
+impact}.  \replaced[id=hj]{A complete evaluation requires preparatory effort}{This requires effort in both planning the evaluation}(before any
 experiment is performed) and \replaced[id=hj]{effort to publish}{in publishing} \replaced[id=tr]{its details and results}{the evaluation}.
 \replaced[id=tr]{Here, we}{We} suggest general guidelines for both of these steps \deleted[id=hj]{most of} which
 derive from basic scientific principles of clarity and reproducibility.
@@ -278,7 +278,7 @@ all types of data is fundamentally flawed.  Indeed, the \added[id=tr]{``}No Free
 Theorems\replaced[id=tr]{''}{\cite{Wolpert1997}} provide bounds on solution quality that show otherwise
 i.e. specifically that ``improvement of performance in problem-solving hinges on using prior information to match procedures to problems.''\added[id=tr]{\cite{Wolpert1997}}
 
-\subsubsection{\replaced[id=hj]{Demand that the algorihtm developers provide default parameters for the context being investigated}{Hassle the developers for a set of default parameters}}
+\subsubsection{\replaced[id=hj]{Demand that the algorithm developers provide default parameters for the context being investigated}{Hassle the developers for a set of default parameters}}
 Expert knowledge of a specific program and/or algorithm is most
 likely found with the original developers who would be in a position to
 provide optimal parameterization.
@@ -340,7 +340,7 @@ sufficient detail.
 
 \subsubsection{Comparisons should be performed on publicly available data.}
 For reasons of reproducibility and transparency, evaluations should be performed
-using publicly availabile data sets.  Given the rather large number
+using publicly available data sets.  Given the rather large number
 of such institutional efforts including
 IXI,%
 \footnote{
@@ -589,7 +589,7 @@ were provided by Neuromorphometrics, Inc.%
 \footnote{
 http://neuromorphemetrics.com/
 } under academic subscription (released under the Creative Commons
-Atribution-Non Commercial license).
+Attribution-Non Commercial license).
 
 \subsubsection{Registration Protocols}
 ANTs%
@@ -825,7 +825,7 @@ can run 3-4 times as long as \verb#ANTS#).  However, multi-threading capabilitie
 are much better developed in \verb#antsRegistration#.
 
 
-\added[id=tr]{[Q: would it be worthwile showing the variability of results with
+\added[id=tr]{[Q: would it be worthwhile showing the variability of results with
   single- vs. double-precision ANTS? Also, does result change with number of
   CPUs? That would be interesting to demonstrate also. Finally, using standard
   vs. SSE double precision?]}
