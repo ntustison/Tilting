@@ -270,7 +270,8 @@ derive from basic scientific principles of clarity and reproducibility.
 \subsection{Designing the Evaluation Study}
 \subsubsection{\added[id=hj]{Rigourously }Define the Algorithm's Context}
 The only algorithm that is capable of outperforming all others on all
-problems is exhaustive search\added[id=tr]{, assuming a perfect objective function}.\replaced[id=tr]{As this is not feasible in practice}{Therefore}, many algorithms employ
+problems is exhaustive search\added[id=tr]{, assuming a perfect objective function}.
+\replaced[id=tr]{As this is not feasible in practice}{Therefore}, many algorithms employ
 prior knowledge such as regularization or other heuristics that
 restrict the search space \added[id=hj]{to the relevant parameters for a narrow\added[id=nt]{ly} specified problem}.  The very idea that one\replaced[id=tr]{(e.g., registration)}{, for instance,
 registration} algorithm \replaced[id=tr]{could perform}{should be} better than all other algorithms on
@@ -281,7 +282,17 @@ i.e. specifically that ``improvement of performance in problem-solving hinges on
 \subsubsection{\replaced[id=hj]{Demand that the algorithm developers provide default parameters for the context being investigated}{Hassle the developers for a set of default parameters}}
 Expert knowledge of a specific program and/or algorithm is most
 likely found with the original developers who would be in a position to
-provide optimal parameterization.
+provide optimal parameterization. \added[id=nt]{In comparing FAST (FSL), 
+FreeSurfer, and SPM5, the authors of the study \cite{klauschen2009}
+contacted the software authors ``to verify that the approach use[d] in the
+publication is recommended.''  Similarly, for a comparison of brain extraction
+methods, the authors of the study \cite{iglesias2011} contacted the
+authors of each of the six competitor algorithms who were ``invited to provide 
+parameter values for each of the three [public] datasets.''  The study authors itemized 
+the responses from each of the contacts and even accommodated a pre-processing
+request from one of the algorithm's authors.
+}
+
 Developers should \replaced[id=tr]{actively}{also} facilitate
 comparisons by providing default parameter files, sample scripts,
 or possible command line calls.  For example, the developers of
@@ -481,7 +492,9 @@ failures during processing should be mentioned and whether
 or not these data were excluded from subsequent analysis.
 
 
-\subsubsection{Resulting images should be publicly posted}
+\subsubsection{Resulting images should be publicly posted 
+\added[id=nt]{and/or online public resources should be used}
+}
 
 The current publishing paradigm limits the quantity of
 results that can be posted.  There are only so many pages
@@ -504,6 +517,18 @@ and slicedrop.%
 \footnote{
 http://slicedrop.com
 }
+
+\added[id=nt]{Alternatively (or additionally), online resources can
+be used to publicly post and compare results.  Shattuck et al. 
+\cite{shattuck2009} describe the LONI Segmentation Validation Engine%
+\footnote{
+http://sve.loni.ucla.edu
+}
+which can be used to evaluate individual algorithms (and parameter set 
+variants) for brain segmentation on publicly available
+data sets and compare with previously posted results.  A top ranking
+outcome provides significant external validation for publishing newly
+proposed methodologies (e.g. \cite{eskildsen2012}).}
 
 %figshare
 

@@ -2,12 +2,89 @@
 %% http://bibdesk.sourceforge.net/
 
 
-%% Created for Nick Tustison at 2013-05-23 19:47:24 -0400 
+%% Created for Nick Tustison at 2013-05-28 20:34:16 -0400 
 
 
 %% Saved with string encoding Unicode (UTF-8) 
 
 
+
+@article{eskildsen2012,
+	Abstract = {Brain extraction is an important step in the analysis of brain images. The variability in brain morphology and the difference in intensity characteristics due to imaging sequences make the development of a general purpose brain extraction algorithm challenging. To address this issue, we propose a new robust method (BEaST) dedicated to produce consistent and accurate brain extraction. This method is based on nonlocal segmentation embedded in a multi-resolution framework. A library of 80 priors is semi-automatically constructed from the NIH-sponsored MRI study of normal brain development, the International Consortium for Brain Mapping, and the Alzheimer's Disease Neuroimaging Initiative databases. In testing, a mean Dice similarity coefficient of 0.9834$\pm$0.0053 was obtained when performing leave-one-out cross validation selecting only 20 priors from the library. Validation using the online Segmentation Validation Engine resulted in a top ranking position with a mean Dice coefficient of 0.9781$\pm$0.0047. Robustness of BEaST is demonstrated on all baseline ADNI data, resulting in a very low failure rate. The segmentation accuracy of the method is better than two widely used publicly available methods and recent state-of-the-art hybrid approaches. BEaST provides results comparable to a recent label fusion approach, while being 40 times faster and requiring a much smaller library of priors.},
+	Author = {Eskildsen, Simon F and Coup{\'e}, Pierrick and Fonov, Vladimir and Manj{\'o}n, Jos{\'e} V and Leung, Kelvin K and Guizard, Nicolas and Wassef, Shafik N and {\O}stergaard, Lasse Riis and Collins, D Louis and {Alzheimer's Disease Neuroimaging Initiative}},
+	Date-Added = {2013-05-29 00:34:09 +0000},
+	Date-Modified = {2013-05-29 00:34:09 +0000},
+	Doi = {10.1016/j.neuroimage.2011.09.012},
+	Journal = {Neuroimage},
+	Journal-Full = {NeuroImage},
+	Mesh = {Adolescent; Adult; Algorithms; Brain; Brain Mapping; Computers; Databases, Factual; False Negative Reactions; False Positive Reactions; Female; Humans; Image Processing, Computer-Assisted; Magnetic Resonance Imaging; Male; Quality Control; Reference Standards; Reproducibility of Results; Software; Young Adult},
+	Month = {Feb},
+	Number = {3},
+	Pages = {2362-73},
+	Pmid = {21945694},
+	Pst = {ppublish},
+	Title = {BEaST: brain extraction based on nonlocal segmentation technique},
+	Volume = {59},
+	Year = {2012},
+	Bdsk-Url-1 = {http://dx.doi.org/10.1016/j.neuroimage.2011.09.012}}
+
+@article{shattuck2009,
+	Abstract = {One key issue that must be addressed during the development of image segmentation algorithms is the accuracy of the results they produce. Algorithm developers require this so they can see where methods need to be improved and see how new developments compare with existing ones. Users of algorithms also need to understand the characteristics of algorithms when they select and apply them to their neuroimaging analysis applications. Many metrics have been proposed to characterize error and success rates in segmentation, and several datasets have also been made public for evaluation. Still, the methodologies used in analyzing and reporting these results vary from study to study, so even when studies use the same metrics their numerical results may not necessarily be directly comparable. To address this problem, we developed a web-based resource for evaluating the performance of skull-stripping in T1-weighted MRI. The resource provides both the data to be segmented and an online application that performs a validation study on the data. Users may download the test dataset, segment it using whichever method they wish to assess, and upload their segmentation results to the server. The server computes a series of metrics, displays a detailed report of the validation results, and archives these for future browsing and analysis. We applied this framework to the evaluation of 3 popular skull-stripping algorithms--the Brain Extraction Tool [Smith, S.M., 2002. Fast robust automated brain extraction. Hum. Brain Mapp. 17 (3),143-155 (Nov)], the Hybrid Watershed Algorithm [S{\'e}gonne, F., Dale, A.M., Busa, E., Glessner, M., Salat, D., Hahn, H.K., Fischl, B., 2004. A hybrid approach to the skull stripping problem in MRI. NeuroImage 22 (3), 1060-1075 (Jul)], and the Brain Surface Extractor [Shattuck, D.W., Sandor-Leahy, S.R., Schaper, K.A., Rottenberg, D.A., Leahy, R.M., 2001. Magnetic resonance image tissue classification using a partial volume model. NeuroImage 13 (5), 856-876 (May) under several different program settings. Our results show that with proper parameter selection, all 3 algorithms can achieve satisfactory skull-stripping on the test data.},
+	Author = {Shattuck, David W and Prasad, Gautam and Mirza, Mubeena and Narr, Katherine L and Toga, Arthur W},
+	Date-Added = {2013-05-29 00:16:35 +0000},
+	Date-Modified = {2013-05-29 00:16:35 +0000},
+	Doi = {10.1016/j.neuroimage.2008.10.066},
+	Journal = {Neuroimage},
+	Journal-Full = {NeuroImage},
+	Mesh = {Adult; Algorithms; Computer Simulation; Database Management Systems; Databases, Factual; Female; Humans; Image Enhancement; Image Interpretation, Computer-Assisted; Information Dissemination; Internet; Magnetic Resonance Imaging; Male; Models, Anatomic; Pattern Recognition, Automated; Reproducibility of Results; Sensitivity and Specificity},
+	Month = {Apr},
+	Number = {2},
+	Pages = {431-9},
+	Pmc = {PMC2757629},
+	Pmid = {19073267},
+	Pst = {ppublish},
+	Title = {Online resource for validation of brain segmentation methods},
+	Volume = {45},
+	Year = {2009},
+	Bdsk-Url-1 = {http://dx.doi.org/10.1016/j.neuroimage.2008.10.066}}
+
+@article{iglesias2011,
+	Abstract = {Automatic whole-brain extraction from magnetic resonance images (MRI), also known as skull stripping, is a key component in most neuroimage pipelines. As the first element in the chain, its robustness is critical for the overall performance of the system. Many skull stripping methods have been proposed, but the problem is not considered to be completely solved yet. Many systems in the literature have good performance on certain datasets (mostly the datasets they were trained/tuned on), but fail to produce satisfactory results when the acquisition conditions or study populations are different. In this paper we introduce a robust, learning-based brain extraction system (ROBEX). The method combines a discriminative and a generative model to achieve the final result. The discriminative model is a Random Forest classifier trained to detect the brain boundary; the generative model is a point distribution model that ensures that the result is plausible. When a new image is presented to the system, the generative model is explored to find the contour with highest likelihood according to the discriminative model. Because the target shape is in general not perfectly represented by the generative model, the contour is refined using graph cuts to obtain the final segmentation. Both models were trained using 92 scans from a proprietary dataset but they achieve a high degree of robustness on a variety of other datasets. ROBEX was compared with six other popular, publicly available methods (BET, BSE, FreeSurfer, AFNI, BridgeBurner, and GCUT) on three publicly available datasets (IBSR, LPBA40, and OASIS, 137 scans in total) that include a wide range of acquisition hardware and a highly variable population (different age groups, healthy/diseased). The results show that ROBEX provides significantly improved performance measures for almost every method/dataset combination.},
+	Author = {Iglesias, Juan Eugenio and Liu, Cheng-Yi and Thompson, Paul M and Tu, Zhuowen},
+	Date-Added = {2013-05-28 23:50:40 +0000},
+	Date-Modified = {2013-05-28 23:50:40 +0000},
+	Doi = {10.1109/TMI.2011.2138152},
+	Journal = {IEEE Trans Med Imaging},
+	Journal-Full = {IEEE transactions on medical imaging},
+	Mesh = {Adult; Aged; Algorithms; Automatic Data Processing; Brain; Computer Simulation; Database Management Systems; Databases, Factual; Discriminant Analysis; Female; Humans; Image Processing, Computer-Assisted; Magnetic Resonance Imaging; Male; Middle Aged; Models, Anatomic; Pattern Recognition, Automated; Reproducibility of Results; Sensitivity and Specificity; Skull},
+	Month = {Sep},
+	Number = {9},
+	Pages = {1617-34},
+	Pmid = {21880566},
+	Pst = {ppublish},
+	Title = {Robust brain extraction across datasets and comparison with publicly available methods},
+	Volume = {30},
+	Year = {2011},
+	Bdsk-Url-1 = {http://dx.doi.org/10.1109/TMI.2011.2138152}}
+
+@article{klauschen2009,
+	Abstract = {We compare three widely used brain volumetry methods available in the software packages FSL, SPM5, and FreeSurfer and evaluate their performance using simulated and real MR brain data sets. We analyze the accuracy of gray and white matter volume measurements and their robustness against changes of image quality using the BrainWeb MRI database. These images are based on "gold-standard" reference brain templates. This allows us to assess between- (same data set, different method) and also within-segmenter (same method, variation of image quality) comparability, for both of which we find pronounced variations in segmentation results for gray and white matter volumes. The calculated volumes deviate up to >10% from the reference values for gray and white matter depending on method and image quality. Sensitivity is best for SPM5, volumetric accuracy for gray and white matter was similar in SPM5 and FSL and better than in FreeSurfer. FSL showed the highest stability for white (<5%), FreeSurfer (6.2%) for gray matter for constant image quality BrainWeb data. Between-segmenter comparisons show discrepancies of up to >20% for the simulated data and 24% on average for the real data sets, whereas within-method performance analysis uncovered volume differences of up to >15%. Since the discrepancies between results reach the same order of magnitude as volume changes observed in disease, these effects limit the usability of the segmentation methods for following volume changes in individual patients over time and should be taken into account during the planning and analysis of brain volume studies.},
+	Author = {Klauschen, Frederick and Goldman, Aaron and Barra, Vincent and Meyer-Lindenberg, Andreas and Lundervold, Arvid},
+	Date-Added = {2013-05-28 23:31:45 +0000},
+	Date-Modified = {2013-05-28 23:31:45 +0000},
+	Doi = {10.1002/hbm.20599},
+	Journal = {Hum Brain Mapp},
+	Journal-Full = {Human brain mapping},
+	Mesh = {Aged; Algorithms; Automatic Data Processing; Brain; Brain Mapping; Computer Simulation; Databases, Bibliographic; Female; Humans; Image Processing, Computer-Assisted; Magnetic Resonance Imaging; Male; Middle Aged; Reference Values; Software},
+	Month = {Apr},
+	Number = {4},
+	Pages = {1310-27},
+	Pmid = {18537111},
+	Pst = {ppublish},
+	Title = {Evaluation of automated brain MR image segmentation and volumetry methods},
+	Volume = {30},
+	Year = {2009},
+	Bdsk-Url-1 = {http://dx.doi.org/10.1002/hbm.20599}}
 
 @article{tustison2012a,
 	Author = {Nicholas J. Tustison and Brian B. Avants},
@@ -16,14 +93,6 @@
 	Journal = {Insight Journal},
 	Title = {The TVDMFFDVR Algorithm},
 	Year = {2012}}
-
-@article{tustison2009b,
-	Author = {Nicholas J. Tustison and James C. Gee},
-	Date-Added = {2013-05-23 23:43:54 +0000},
-	Date-Modified = {2013-05-23 23:46:56 +0000},
-	Journal = {Insight Journal},
-	Title = {N4ITK: Nick's N3 ITK Implementation For MRI Bias Field Correction},
-	Year = {2009}}
 
 @article{johnson2007,
 	Author = {Hans J. Johnson and G. Harris and Kent Williams},
