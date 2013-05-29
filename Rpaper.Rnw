@@ -210,7 +210,11 @@ open science \sep \added[id=hj]{open data} \sep \added[id=hj]{comparison} \sep r
 
 \section{Introduction}
 
-
+\epigraph{By honest I don't mean that you only tell what's true. But you make clear the
+entire situation. You make clear all the information that is required for somebody else
+who is intelligent to make up their mind.}{\deleted[id=tr]{Professor }Richard Feynman}
+\added[id=tr,remark={I think the Feynman quote would be much more appropriately positioned
+  at the very beginning of the article, right after the abstract}]{}
 
 
 The neuroscience community has significantly benefitted from the proliferation
@@ -546,9 +550,30 @@ would be much more significant if the authors discussed possible reasons
 for relative  performance levels.  This simply constitutes evidence for
 the claims of the paper.
 
-\subsection{Post-Publication: Publications Age}
+\subsection{\replaced[id=nt]{Pertinency of the current publishing paradigm}{Post-Publication: Publications Age}}
+\replaced[id=nt]{
+There has been much discussion amongst the broad scientific
+community regarding current publishing practices.  Issues 
+such as open access to scientific findings and exorbitant 
+subscription costs have caused many scientists to rethink
+their approaches to reporting research.  In addition to
+such issues,
+we point out that these traditional venues are often 
+suboptimal for publishing evaluations given the dynamic nature
+of the software development process.  We assume that if 
+an algorithm is of sufficient utility and/or novelty for publication, 
+then it will continue to undergo improvements and bug fixes.  In
+addition to considering public availability, we would also encourage
+authors to consider more dynamic venues for posting relevant material
+and updates.  Online utilities such as sourceforge and github not only facilitate
+collaboration and code distribution but often support wikis
+and discussion forums which provide an auxiliary resource to
+the original publication.
+}
+{quoting satra ``a published evaluation is old the day the evaluation was done, as most software keeps changing. for example, arno's results were fine at that time with those versions and parameterization of the software, but might be a different story currently.''}
 
-quoting satra ``a published evaluation is old the day the evaluation was done, as most software keeps changing. for example, arno's results were fine at that time with those versions and parameterization of the software, but might be a different story currently.''
+
+
 
 \section{Evaluation Example:  ANTS vs. antsRegistration}%
 \added[id=ak, remark={
@@ -859,12 +884,6 @@ are much better developed in \verb#antsRegistration#.
 %tests, and producing nearly identical results in single precision for a short run ($10x10x10$ iterations) 3 level %registration]}
 
 \section{Conclusion}
-
-\epigraph{By honest I don't mean that you only tell what's true. But you make clear the
-entire situation. You make clear all the information that is required for somebody else
-who is intelligent to make up their mind.}{\deleted[id=tr]{Professor }Richard Feynman}
-\added[id=tr,remark={I think the Feynman quote would be much more appropriately positioned
-  at the very beginning of the article, right after the abstract}]{}
 
 Considering the permeation of the computational sciences in doing
 nueroimaging research, certain safeguards should be in place to prevent
