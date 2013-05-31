@@ -122,10 +122,10 @@
 \long\def\symbolfootnote[#1]#2{\begingroup%
 \def\thefootnote{\fnsymbol{footnote}}\footnote[#1]{#2}\endgroup}
 
-\usepackage{Sweave}
+% \usepackage{Sweave}
 \begin{document}
 % \SweaveOpts{concordance=TRUE}
-\input{Rpaper-concordance}
+% \input{Rpaper-concordance}
 
 
 \begin{frontmatter}
