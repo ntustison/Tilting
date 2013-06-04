@@ -64,6 +64,7 @@
 \definechangesauthor[name={Nick Tustison}, color=orange]{nt}
 \definechangesauthor[name={Brian Avants}, color=purple]{ba}
 \definechangesauthor[name={Arno Klein}, color=blue]{ak}
+\definechangesauthor[name={Satrajit Ghosh}, color=magenta]{sg}
 
 
 \floatstyle{plain}
@@ -272,7 +273,7 @@ experiment is performed) and \replaced[id=hj]{effort to publish}{in publishing} 
 derive from basic scientific principles of clarity and reproducibility.
 
 \subsection{Designing the Evaluation Study}
-\subsubsection{\added[id=hj]{Rigourously }Define the Algorithm's Context}
+\subsubsection{\added[id=hj]{Rigourously }Define the Algorithm's Context}\added[id=sg, remark={Perhaps ``Scope'' is a better word here, as that could cover things beyond the problem to include runtime environments, data characteristics (i.e, quality, scanner, etc.,.)}]
 The only algorithm that is capable of outperforming all others on all
 problems is exhaustive search\added[id=tr]{, assuming a perfect objective function}.
 \replaced[id=tr]{As this is not feasible in practice}{Therefore}, many algorithms employ
@@ -283,7 +284,7 @@ all types of data is fundamentally flawed.  Indeed, the \added[id=tr]{``}No Free
 Theorems\replaced[id=tr]{''}{\cite{Wolpert1997}} provide bounds on solution quality that show otherwise
 i.e. specifically that ``improvement of performance in problem-solving hinges on using prior information to match procedures to problems.''\added[id=tr]{\cite{Wolpert1997}}
 
-\subsubsection{\replaced[id=hj]{Demand that the algorithm developers provide default parameters for the context being investigated}{Hassle the developers for a set of default parameters}}
+\subsubsection{\replaced[id=hj]{\replaced[id=sg]{Demand that the algorithm developers p}{P}rovide default parameters for the \replaced[id=sg]{context}{algorithm} being investigated}{Hassle the developers for a set of default parameters}}
 Expert knowledge of a specific program and/or algorithm is most
 likely found with the original developers who would be in a position to
 provide optimal parameterization. \added[id=nt]{In comparing FAST (FSL), 
@@ -299,7 +300,7 @@ request from one of the algorithm's authors.
 
 Developers should \replaced[id=tr]{actively}{also} facilitate
 comparisons by providing default parameter files, sample scripts,
-or possible command line calls.  For example, the developers of
+\added[id=sg]{data} or possible command line calls.  For example, the developers of
 the image registration program elastix \cite{klein2010} provide an
 assortment of parameter files on the wiki page%
 \footnote{
@@ -309,7 +310,7 @@ listed in tabular format complete with  short
 description (including applied modality and object of interest) and
 any publications which used that specific parameter file.  Additionally,
 other packages are associated with discussion forums where users can
-query regarding usage.
+query regarding usage \added[id=sg]{but such unstructured information sources can be difficult to query and navigate}.
 
 \subsubsection{Do not \replaced[id=tr]{implement}{code up} your own version of the algorithm particularly
 if one is available from the original authors.
@@ -334,9 +335,7 @@ the original authors although not advertised as such) while the third,
 Freesurfer \cite{fischl2012}, was used ``off the shelf'' having been extensively
 tuned and well-documented by the original authors.
 Thus, a natural question to ask is whether the performance difference
-is due to the algorithm itself\replaced[id=tr]{,}{or} the implementation\added[id=tr]{, or the parameter tuning}.
-
-
+is due to the algorithm itself\replaced[id=tr]{,}{or} the implementation\added[id=tr]{, or the parameter tuning}\added[id=sg, remark={But this could easily be tested on a validation set - perhaps something to include/talk about}].
 
 \subsubsection{Co-authors should verify findings.}
 
@@ -389,6 +388,8 @@ analysis on public data.
 
 
 \subsection{Publishing the Evaluation}
+
+\added[id=sg, remark={Why not make them provide a reproducible VM for the evaluation? I understand it's a matter of difficulty, but somebody running an evaluation should be able to reproduce it. Furthermore, an evaluation itself is a function of it's context and is obsolete imho after the paper is published unless it can be rerun over and over again with newer datasets and newer versions of the software. Just because ANTS did well in Arno's study, I should not extrapolate that it's still the best! Think of choosing an algorithm much like choosing a model in machine learning.}]
 
 \subsubsection{Include parameters.}
 A best practice exemplar of comparative evaluation studies
