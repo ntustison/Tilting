@@ -257,12 +257,6 @@ we propose a preliminary set of guidelines for minimal
 reporting of algorithmic usage to minimize such bias, understanding that
 the discussion will likely
 elicit a much more comprehensive response from the larger neuroscience community.
-
-Previous articles have discussed similar concerns, oftentimes
-within a specific application context (e.g. fMRI reporting \cite{poldrack2008}),
-we are more generally interested in comparative evaluations of software
-and provide additional discussion through experience and actual
-examples found within the literature.
 It is hoped that this commentary serves to raise awareness of both
 authors and reviewers to such problematic issues (not unlike other
 recent articles detailing additional potential sources of methodological
@@ -294,17 +288,7 @@ i.e. specifically that ``improvement of performance in problem-solving hinges on
 context being investigated}
 Expert knowledge of a specific program and/or algorithm is most
 likely found with the original developers who would be in a position to
-provide optimal parameterization. In comparing FAST (FSL), 
-FreeSurfer, and SPM5, the authors of the study \cite{klauschen2009}
-contacted the software authors ``to verify that the approach use[d] in the
-publication is recommended.''  Similarly, for a comparison of brain extraction
-methods, the authors of the study \cite{iglesias2011} contacted the
-authors of each of the six competitor algorithms who were ``invited to provide 
-parameter values for each of the three [public] datasets.''  The study authors itemized 
-the responses from each of the contacts and even accommodated a pre-processing
-request from one of the algorithm's authors.
-
-
+provide optimal parameterization. 
 Developers should actively facilitate
 comparisons by providing default parameter files, sample scripts,
 data or possible command line calls.  For example, the developers of
@@ -315,34 +299,28 @@ assortment of parameter files on the wiki page%
 }
 listed in tabular format complete with  short
 description (including applied modality and object of interest) and
-any publications which used that specific parameter file.  Additionally,
-other packages are associated with discussion forums where users can
-query regarding usage (even though in archived form such unstructured 
-information sources can be difficult to query and navigate).
+any publications which used that specific parameter file.  
 
 \subsubsection{Do not implement your own version of the algorithm particularly
 if one is available from the original authors.
 If you must re-implement, consider making your implementation available}
 
-Collective experience in developing software has taught us the
-difficulty of translating descriptions found in
-articles into functional code and that much is left unstated
-in presenting core algorithmic ideas.  Ideally, the authors,
-in conjunction with the manuscript, should provide an instantiation
-of the code.  Unfortunately, as observed in \cite{kovacevic2006}
+Much is left unstated in published manuscripts where 
+novel algorithmic concepts are presented.  Ideally, the authors 
+provide an instantiation of the code to accompany the 
+manuscript.  As observed in \cite{kovacevic2006}, however,
 this is often not the case (even in terms of pseudocode).
 As a result, comparative evaluations are sometimes carried out using
-code developed not by the original authors but rather the
-group doing the comparison.  This is not ideal as it is questionable
-whether or not the authors have sufficient motivation to ensure that
-their instantiation of the algorithm is working correctly. For
+code developed not by the original authors but by the
+group doing the comparison.   For
 example, in \cite{clarkson2011}, the authors compared three algorithms
 for estimating cortical thickness.  Two of the algorithms were
-coded by the authors while the third was used ``off the shelf'' 
+coded by the authors of the study while the third was used ``off the shelf'' 
 having been extensively
 tuned and well-documented by the original authors.
 Thus, a natural question to ask is whether the performance difference
-is due to the algorithm itself or the parameter tuning.
+is due to the algorithm itself, implementation quality, and/or the parameter 
+tuning.
 
 \subsubsection{Co-authors should verify findings}
 
@@ -397,22 +375,16 @@ analysis on public data.
 \subsection{Publishing the evaluation}
 
 \subsubsection{Include parameters}
-A best practice exemplar of comparative evaluation studies
-is the work by Klein et al. \cite{Klein2009} where
+In \cite{Klein2009},
 14 nonlinear registration algorithms were compared using
 four publicly available, labeled brain MRI data sets.
-As part of the study, the authors themselves tuned
-the parameters for their algorithm to ensure good
+As part of the study, the respective algorithms' authors tuned
+the parameters to ensure good
 performance which were then distributed 
 on Prof. Klein's website.%
 \footnote{
 http://mindboggle.info/papers/evaluation\_NeuroImage2009.php
 }
-This practice promotes reproducibility, fairness, and transparency in
-the evaluation and is perhaps most fundamental in these types
-of studies for establishing conclusions regarding the relative
-performance of algorithms.
-
 In contrast, not specifying parameters
 leaves one susceptible to criticisms of confirmation and/or
 instrumentation bias \cite{sackett1979}.  For example, in
@@ -423,30 +395,22 @@ that ``[r]egistration with ANIMAL was better than with SyN for
 the left thalamus'' in a cohort of Parkinson's disease patients.
 One of the stated reasons for using ANIMAL was ``because of
 [the authors']
-extensive experience with this technique.''
-  However, for SyN,
+extensive experience with this technique.'' However, for SyN,
 the authors provide no equivalent assurance---no contact
 was made with the primary developers of ANTs (SyN) nor
 were any parameters listed for independent verification
 by reviewers or readers of the article.
-Given the authors' relationship with one of the algorithms
-and likely predisposition towards its relative performance,
-particular caution has to be provided against possible confirmation
-bias.  
 
 
 \subsubsection{Provide details as to the source of the algorithm}
-The precise origin
+Origin 
 should be provided for any code or package used during the
 evaluation.  For example, N4 \cite{tustison2010} is a well-known
 bias correction algorithm first made available as a tech report
-in the Insight Journal \cite{tustison2009a} for subsequent introduction
-into the Insight Toolkit.  However, since
-its inclusion, different instantiations have been made available.
-Apart from the source code that accompanied the original tech
-report, N4 is also available in ANTs (the only version directly maintained
-by the original authors).
-It is also available as a module in Slicer,%
+ \cite{tustison2009a}.  However, since
+its inclusion in the Insight Toolkit, different instantiations 
+have been made available. N4 is also available in ANTs (the only 
+version directly maintained by the original authors), as a module in Slicer,%
 \footnote{
 http://www.slicer.org/slicerWiki/index.php/Documentation/4.2/Modules/N4ITKBiasFieldCorrection
 }
@@ -464,12 +428,10 @@ http://www.nitrc.org/plugins/mwiki/index.php/brains:N4ITK
 }
 While each version is dependent on the original source
 code, there could exist subtle variations which can affect performance.
-For example, the parameters governing the spline distance and
-number of iterations directly affect outcome and should be tuned
-based on application.  However, as a particular case, the \verb#c3d#
+As a particular case, the \verb#c3d#
 implementation hard-codes
-these values with no access to modify them by the user, potentially
-leading to suboptimal performance.
+the certain parameter values with no access to modify them by the user, 
+potentially leading to suboptimal performance.
 
 \subsubsection{Provide computational platform details of the evaluation}
 A recent article \cite{gronenschild2012} pointed out significant
@@ -501,28 +463,14 @@ This results in possible selection bias where results provided
 in the manuscript are selected by the authors for demonstrating
 the effect postulated at the onset of the study.  Thus, differences
 in performance assessment tend to be exaggerated based strictly
-on visual representations in the paper.  Resources for data
-sharing include MIDAS,%
-\footnote{
-http://www.midasplatform.org
-}
-XNAT,%
-\footnote{
-http://xnat.org
-}
-and slicedrop.%
-\footnote{
-http://slicedrop.com
-}
-
-Alternatively (or additionally), online resources can
-be used to publicly post and compare results.  Shattuck et al. 
-\cite{shattuck2009} describe the LONI Segmentation Validation Engine%
+on visual representations in the paper.  
+Alternatively (or additionally), online resources such as the
+the LONI Segmentation Validation Engine \cite{shattuck2009}%
 \footnote{
 http://sve.loni.ucla.edu
 }
-which can be used to evaluate individual algorithms (and parameter set 
-variants) for brain segmentation on publicly available
+can be used to evaluate individual algorithms
+for brain segmentation on publicly available
 data sets and compare with previously posted results.  A top ranking
 outcome provides significant external validation for publishing newly
 proposed methodologies (e.g. \cite{eskildsen2012}).
@@ -536,12 +484,10 @@ assessment metrics.  In \cite{rohlfing2012}, T. Rohlfing pointed out
 deficiencies in using standard overlap measures and image similarity
 metrics in quantifying performance.  Other issues, such as biological
 plausibility of the resulting transforms, need to also be considered.
-
 Also important for inclusion is discussion on the possible reasons for performance
 disparity.  If one algorithm outperforms another, reporting of those findings
 would be much more significant if the authors discussed possible reasons
-for relative  performance levels.  This simply constitutes evidence for
-the claims of the paper.
+for relative  performance levels.  
 
 \subsection{Pertinency of the current publishing paradigm}
 There has been much discussion amongst the broad scientific
