@@ -157,16 +157,12 @@
 \linenumbers
 
 \begin{abstract}
-Exploration of neuroscience hypotheses has been  enhanced
-by the increased availability of high-performance computational resources
-such as XSEDE%
-\footnote{
-https://www.xsede.org/
-}; large-scale developmental efforts such as the Insight Toolkit and the 
-R statistical project; and algorithmic advancements for data transformations and 
-processing.
-An integral component of a rigorous vetting process for
-novel algorithmic techniques includes comparison with other methods previously
+Image-based science relies heavily on freely available resources that assist the spatial
+mapping (registration or normalization) process used in population
+and subject-specific multiple modality studies.  New imaging
+technologies and application domains lead to continuous innovation in
+these mapping techniques.  A standard part of developing new
+registration approaches involves comparison with other methods previously
 established within the community.  Public availability, including
 open source distribution, of established packages has significantly
 facilitated these comparative evaluations, particularly when the packages
@@ -174,13 +170,16 @@ provide access to an open source distribution and are indexed in a resource like
 Neuroimaging Informatics Tools and Resources Clearinghouse%
 \footnote{
 http://www.nitrc.org
-}.  
-However, complementing the
-recent set of papers pointing to serious methodological and statistical
-bias considerations in neuroimaging research, we point out potential
-issues associated with measurement bias in comparative algorithmic
-evaluations.  In this paper we propose a set of guidelines for authors and 
-reviewers to minimize these evaluation biases.
+}.  While we applaud all current efforts to evaluate registration
+technology---critical to establishing the methods as translational tools---we feel that the current
+standards are too weak to avoid {\em instrumentation bias}.  In this
+case, the bias occurs most strongly when authors of a new algorithm
+also conduct the algorithm's evaluation, frequently by
+running their own experiments against a set of ``competing methods.''
+The problems with this are obvious and nefarious:  in brief, authors want to show
+that their method is ``the best'' and allocate resources accordingly.  
+In this paper we propose a set of guidelines that will help authors and 
+reviewers minimize the presence of this type of bias in new publications.
 \end{abstract}
 \begin{keyword}
 open science \sep open data \sep comparison \sep reproducibility  \sep software \sep instrument bias
@@ -228,7 +227,8 @@ who is intelligent to make up their mind.}{Richard Feynman}
 The neuroscience community has significantly benefitted from the proliferation
 of imaging-related analysis software packages.
 Established packages such as SPM \cite{Ashburner2012},
-the FMRIB Software Library (FSL) \cite{Jenkinson2012}, Slicer \cite{fedorov2012} and
+the FMRIB Software Library (FSL) \cite{Jenkinson2012}, Freesurfer
+\cite{Fischl2012}, Slicer \cite{fedorov2012} and
 the AFNI toolkit \cite{cox2012} have aided neuroimaging researchers
 around the world in performing complex analyses as part of
 ongoing neuroscience research.
@@ -238,29 +238,36 @@ algorithmic innovation for improvement
 in analysis tools.
 
 As fellow scientists who actively participate in neuroscience
-research through our many contributions to the Insight
+research through our contributions to the Insight
 Toolkit
 (e.g. \cite{johnson2007,tustison2009a,tustison2012a})
 and other packages such as the Advanced Normalization Tools (ANTs),%
 \footnote{
 http://www.picsl.upenn.edu/ANTs
-}
-we have noticed an increasing number of publications in which a principal
-component involves the comparison of algorithms which, in principle, is
+} \cite{avants2011,Avants2010}
+we have noticed an increasing number of publications that intend a
+fair comparison of algorithms which, in principle, is
 a good thing.  We are concerned, however, by the lack of detail with 
 which these comparisons are
 often presented and the corresponding possibility of {\it instrumentation
 bias} \cite{sackett1979} (considering software  as a type of
 instrument requiring proper ``calibration'' for accurate measurements).
 Based on our experience (including mistakes that we ourselves have made),
-we propose a preliminary set of guidelines for minimal
-reporting of algorithmic usage to minimize such bias, understanding that
-the discussion will likely
-elicit a much more comprehensive response from the larger neuroscience community.
-It is hoped that this commentary serves to raise awareness of both
-authors and reviewers to such problematic issues (not unlike other
-recent articles detailing additional potential sources of methodological
-bias \cite{kriegeskorte2009,vul2012,tustison2012}).
+we propose a preliminary set of guidelines that seek to minimize such bias, understanding that
+the discussion will require a more comprehensive response from the larger neuroscience community.
+We intend this commentary to raise awareness in both
+authors and reviewers to issues that arise when comparing quantitative
+algorithms for image registration.  While image registration is our
+focus, these recommendations are relevant for several other
+application areas in biologically-focused computational 
+image analysis.  This comment complements recent papers that highlight
+statistical bias \cite{kriegeskorte2009,vul2012}, bias induced by
+registration metrics \cite{tustison2012} and registration strategy \cite{Yushkevich2010} and guideline papers for
+software development \cite{Prlic2012}.
+%
+% (not unlike other
+% recent articles detailing additional potential sources of methodological
+% bias).
 
 \section{Guidelines}
 
@@ -273,31 +280,41 @@ derive from basic scientific principles of clarity and reproducibility.
 
 \subsection{Designing the evaluation study}
 \subsubsection{Rigorously define the algorithm's scope}
-The only algorithm that is capable of outperforming all others on all
-problems is exhaustive search, assuming a perfect objective function.
-As this is not feasible in practice, many algorithms employ
-prior knowledge such as regularization or other heuristics that
-restrict the search space to the relevant parameters for a narrowly 
-specified problem.  The very idea that one (e.g., registration) algorithm 
+% The only algorithm that is capable of outperforming all others on all
+% problems is exhaustive search, assuming a perfect objective function.
+% As this is not feasible in practice, many algorithms employ
+% prior knowledge such as regularization or other heuristics that
+% restrict the search space to the relevant parameters for a narrowly 
+% specified problem.  
+
+The very idea that one (e.g., registration) algorithm 
 could perform better than all other algorithms on
 all types of data is fundamentally flawed.  Indeed, the ``No Free Lunch
 Theorems'' provide bounds on solution quality that show otherwise
-i.e. specifically that ``improvement of performance in problem-solving hinges on using prior information to match procedures to problems''\cite{Wolpert1997}.
+i.e. specifically that ``improvement of performance in problem-solving
+hinges on using prior information to match procedures to
+problems''\cite{Wolpert1997}. Therefore, the first thing that authors of new algorithms should do is
+identify how their methods differ with respect to other freely
+available techniques in terms of the use of prior knowledge.
+Furthermore, is it possible to incorporate similar prior knowledge
+into existing methods simply by asking the authors of these algorithms
+how this might be achieved?
 
 \subsubsection{Demand that the algorithm developers provide default parameters for the 
 context being investigated}
 Expert knowledge of a specific program and/or algorithm is most
 likely found with the original developers who would be in a position to
-provide optimal parameterization. 
-Developers should actively facilitate
-comparisons by providing default parameter files, sample scripts,
-data or possible command line calls.  For example, the developers of
+provide optimal parameterization.  To help this procedure be fruitful,
+one should be willing to share example datasets.  Sharing data with
+algorithm developers allows the developers to facilitate
+comparisons by providing relevant parameter files and sample scripts
+that detail command line calls.  For example, the developers of
 the image registration program elastix \cite{klein2010} provide an
 assortment of parameter files on the wiki page%
 \footnote{
   http://elastix.bigr.nl/wiki/index.php/Parameter\_file\_database
 }
-listed in tabular format complete with  short
+listed in tabular format complete with short
 description (including applied modality and object of interest) and
 any publications which used that specific parameter file.  
 
@@ -320,7 +337,7 @@ having been extensively
 tuned and well-documented by the original authors.
 Thus, a natural question to ask is whether the performance difference
 is due to the algorithm itself, implementation quality, and/or the parameter 
-tuning.
+tuning.  None of these are addressed by \cite{clarkson2011} which may decrease the publication's usefulness.
 
 \subsubsection{Co-authors should verify findings}
 
@@ -489,7 +506,7 @@ disparity.  If one algorithm outperforms another, reporting of those findings
 would be much more significant if the authors discussed possible reasons
 for relative  performance levels.  
 
-\subsection{Pertinency of the current publishing paradigm}
+\subsection{Relevance of the current publishing paradigm}
 There has been much discussion amongst the broad scientific
 community regarding current publishing practices.  Issues 
 such as open access to scientific findings and exorbitant 
@@ -504,11 +521,12 @@ authors to consider more dynamic venues for posting relevant material
 and updates.  Online utilities such as sourceforge and github not only facilitate
 collaboration and code distribution but often support wikis
 and discussion forums which provide an auxiliary resource to
-original publication(s).
+original publication(s).  Participating in open
+evaluations conducted by third-party organizers
+(e.g. \cite{Klein2009,Murphy2011}) is often an effective (and occasionally high profile) approach for obtaining unbiased algorithm comparison.
 
 \section{Conclusion}
-Considering the permeation of the computational sciences in doing
-nueroimaging research, certain safeguards should be in place to prevent
+Considering that computational sciences permeate nueroimaging research, certain safeguards should be in place to prevent
 (or at least minimize) potential biases and errors that can
 unknowingly effect study outcomes.  There is no vetting agency for
 ensuring that analysis programs used for research are reasonably error-free.
@@ -518,7 +536,9 @@ code.  And even to those of us who are, debugging other people's code
 is oftentimes very difficult.  To this end, algorithmic comparisons are
 a very good way of evaluating general performance.  It is hoped that the
 proposed set of guidelines set forth in this editorial aid the community
-for future comparative assessments.
+for future comparative assessments.  Finally, we hope that these
+guidelines may help authors avoid errors in scientific computing that
+may lead, ultimately, to publication of invalid results \cite{Merali2010}.
 
 
 %% References with bibTeX database:
