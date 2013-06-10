@@ -49,6 +49,7 @@
 \usepackage{listings}
 \usepackage{color,colortbl}
 \usepackage{rccol}
+\usepackage[colorlinks=true,linkcolor=blue]{hyperref}
 \usepackage[table]{xcolor}
 
     \definecolor{listcomment}{rgb}{0.0,0.5,0.0}
@@ -179,7 +180,9 @@ running their own experiments against a set of ``competing methods.''
 The problems with this are obvious and nefarious:  in brief, authors want to show
 that their method is ``the best'' and allocate resources accordingly.  
 In this paper we propose a set of guidelines that will help authors and 
-reviewers minimize the presence of this type of bias in new publications.
+reviewers minimize the presence of this type of bias in new
+publications and in the science based on computational methods such as
+image registration.
 \end{abstract}
 \begin{keyword}
 open science \sep open data \sep comparison \sep reproducibility  \sep software \sep instrument bias
@@ -224,12 +227,12 @@ entire situation. You make clear all the information that is required for somebo
 who is intelligent to make up their mind.}{Richard Feynman}
 
 
-The neuroscience community has significantly benefitted from the proliferation
+The neuroscience community significantly benefits from the proliferation
 of imaging-related analysis software packages.
 Established packages such as SPM \cite{Ashburner2012},
 the FMRIB Software Library (FSL) \cite{Jenkinson2012}, Freesurfer
 \cite{Fischl2012}, Slicer \cite{fedorov2012} and
-the AFNI toolkit \cite{cox2012} have aided neuroimaging researchers
+the AFNI toolkit \cite{cox2012} aid neuroimaging researchers
 around the world in performing complex analyses as part of
 ongoing neuroscience research.
 In conjunction with distributing robust software tools, neuroimaging 
@@ -245,14 +248,14 @@ and other packages such as the Advanced Normalization Tools (ANTs),%
 \footnote{
 http://www.picsl.upenn.edu/ANTs
 } \cite{avants2011,Avants2010}
-we have noticed an increasing number of publications that intend a
+we notice an increasing number of publications that intend a
 fair comparison of algorithms which, in principle, is
-a good thing.  We are concerned, however, by the lack of detail with 
+a good thing.  Our concern is the lack of detail with 
 which these comparisons are
 often presented and the corresponding possibility of {\it instrumentation
 bias} \cite{sackett1979} (considering software  as a type of
 instrument requiring proper ``calibration'' for accurate measurements).
-Based on our experience (including mistakes that we ourselves have made),
+Based on our experience (including our own mistakes),
 we propose a preliminary set of guidelines that seek to minimize such bias, understanding that
 the discussion will require a more comprehensive response from the larger neuroscience community.
 We intend this commentary to raise awareness in both
@@ -507,18 +510,18 @@ would be much more significant if the authors discussed possible reasons
 for relative  performance levels.  
 
 \subsection{Relevance of the current publishing paradigm}
-There has been much discussion amongst the broad scientific
+There is a very active discussion within the broad scientific
 community regarding current publishing practices.  Issues 
 such as open access to scientific findings and exorbitant 
-subscription costs have caused many scientists to rethink
+subscription costs cause many scientists, and even institutions, to rethink
 their approaches to reporting research.  In addition to
 such issues,
 we point out that these traditional venues are often 
 suboptimal for publishing evaluations given the dynamic nature
 of the software development process.    In
-addition to considering public availability, we would also encourage
+addition to considering public availability, we also encourage
 authors to consider more dynamic venues for posting relevant material
-and updates.  Online utilities such as sourceforge and github not only facilitate
+and updates.  Online utilities such as \href{http://www.figshare.com}{figshare}, \href{http://www.sourceforge.net}{sourceforge} and \href{http://www.github.com}{github} not only facilitate
 collaboration and code distribution but often support wikis
 and discussion forums which provide an auxiliary resource to
 original publication(s).  Participating in open
