@@ -537,12 +537,10 @@ In addition, these software packages are simply ``black
 boxes'' to many researchers who are not formally trained to debug
 code.  And even to those of us who are, debugging other people's code
 is oftentimes very difficult.  To this end, algorithmic comparisons are
-a very good way of evaluating general performance.  It is hoped that the
-proposed set of guidelines set forth in this editorial aid the community
-for future comparative assessments.  Finally, we hope that these
-guidelines may help authors avoid errors in scientific computing that
+a very good way of evaluating general performance.  We hope that the
+guidelines proposed in this editorial help the community
+in future comparative assessments and avoid errors in scientific computing that
 may lead, ultimately, to publication of invalid results \cite{Merali2010}.
-
 
 %% References with bibTeX database:
 
