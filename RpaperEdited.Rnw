@@ -158,12 +158,12 @@
 \linenumbers
 
 \begin{abstract}
-Image-based science relies heavily on freely available resources that assist the spatial
-mapping (registration or normalization) process used in population
+Image-based science relies heavily on software resources 
+for population
 and subject-specific multiple modality studies.  New imaging
-technologies and application domains lead to continuous innovation in
-these mapping techniques.  A standard part of developing new
-registration approaches involves comparison with other methods previously
+technologies and application domains lead to continuous algorithmic
+innovation.  A standard part of developing and vetting new
+approaches to data transformation and analysis involves comparison with other methods previously
 established within the community.  Public availability, including
 open source distribution, of established packages has significantly
 facilitated these comparative evaluations, particularly when the packages
@@ -171,18 +171,19 @@ provide access to an open source distribution and are indexed in a resource like
 Neuroimaging Informatics Tools and Resources Clearinghouse%
 \footnote{
 http://www.nitrc.org
-}.  While we applaud all current efforts to evaluate registration
-technology---critical to establishing the methods as translational tools---we feel that the current
-standards are too weak to avoid {\em instrumentation bias}.  In this
+}.  While we applaud all efforts to evaluate such
+technological developments (which are  critical to establishing the methods 
+as viable translational tools) the lack of guiding principles for comparative
+evaluations can result in critical susceptibility to {\em instrumentation bias}.
+In this
 case, the bias occurs most strongly when authors of a new algorithm
 also conduct the algorithm's evaluation, frequently by
 running their own experiments against a set of ``competing methods.''
 The problems with this are obvious and nefarious:  in brief, authors want to show
 that their method is ``the best'' and allocate resources accordingly.  
 In this paper we propose a set of guidelines that will help authors and 
-reviewers minimize the presence of this type of bias in new
-publications and in the science based on computational methods such as
-image registration.
+reviewers minimize the presence of this type of bias as it applies to
+computational methods in the imaging sciences.
 \end{abstract}
 \begin{keyword}
 open science \sep open data \sep comparison \sep reproducibility  \sep software \sep instrument bias
@@ -231,7 +232,7 @@ The neuroscience community significantly benefits from the proliferation
 of imaging-related analysis software packages.
 Established packages such as SPM \cite{Ashburner2012},
 the FMRIB Software Library (FSL) \cite{Jenkinson2012}, Freesurfer
-\cite{Fischl2012}, Slicer \cite{fedorov2012} and
+\cite{fischl2012}, Slicer \cite{fedorov2012} and
 the AFNI toolkit \cite{cox2012} aid neuroimaging researchers
 around the world in performing complex analyses as part of
 ongoing neuroscience research.
@@ -247,7 +248,7 @@ Toolkit
 and other packages such as the Advanced Normalization Tools (ANTs),%
 \footnote{
 http://www.picsl.upenn.edu/ANTs
-} \cite{avants2011,Avants2010}
+} \cite{avants2011,avants2010}
 we notice an increasing number of publications that intend a
 fair comparison of algorithms which, in principle, is
 a good thing.  Our concern is the lack of detail with 
@@ -265,8 +266,8 @@ focus, these recommendations are relevant for several other
 application areas in biologically-focused computational 
 image analysis.  This comment complements recent papers that highlight
 statistical bias \cite{kriegeskorte2009,vul2012}, bias induced by
-registration metrics \cite{tustison2012} and registration strategy \cite{Yushkevich2010} and guideline papers for
-software development \cite{Prlic2012}.
+registration metrics \cite{tustison2012}, and registration strategy \cite{yushkevich2010} and guideline papers for
+software development \cite{prlic2012}.
 %
 % (not unlike other
 % recent articles detailing additional potential sources of methodological
@@ -395,7 +396,7 @@ analysis on public data.
 \subsection{Publishing the evaluation}
 
 \subsubsection{Include parameters}
-In \cite{Klein2009},
+In \cite{klein2009},
 14 nonlinear registration algorithms were compared using
 four publicly available, labeled brain MRI data sets.
 As part of the study, the respective algorithms' authors tuned
@@ -526,10 +527,10 @@ collaboration and code distribution but often support wikis
 and discussion forums which provide an auxiliary resource to
 original publication(s).  Participating in open
 evaluations conducted by third-party organizers
-(e.g. \cite{Klein2009,Murphy2011}) is often an effective (and occasionally high profile) approach for obtaining unbiased algorithm comparison.
+(e.g. \cite{klein2009,murphy2011}) is often an effective (and occasionally high profile) approach for obtaining unbiased algorithm comparison.
 
 \section{Conclusion}
-Considering that computational sciences permeate nueroimaging research, certain safeguards should be in place to prevent
+Considering that computational sciences permeate neuroimaging research, certain safeguards should be in place to prevent
 (or at least minimize) potential biases and errors that can
 unknowingly effect study outcomes.  There is no vetting agency for
 ensuring that analysis programs used for research are reasonably error-free.
@@ -540,7 +541,7 @@ is oftentimes very difficult.  To this end, algorithmic comparisons are
 a very good way of evaluating general performance.  We hope that the
 guidelines proposed in this editorial help the community
 in future comparative assessments and avoid errors in scientific computing that
-may lead, ultimately, to publication of invalid results \cite{Merali2010}.
+may lead, ultimately, to publication of invalid results \cite{merali2010}.
 
 %% References with bibTeX database:
 
