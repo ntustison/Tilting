@@ -132,7 +132,9 @@
 
 \begin{frontmatter}
 
-\title{Instrumentation bias in the use and evaluation of scientific software}
+\title{Instrumentation bias in the use and evaluation of scientific
+software\added[id=tr,remark={Just a suggestion}]{: Recommendations for reprodubible computational
+experiments}}
 
 \author[label1]{Nicholas J.~Tustison
   \fnref{label0}}
@@ -158,11 +160,11 @@
 \linenumbers
 
 \begin{abstract}
-Image-based science relies heavily on software resources 
-for population
+\replaced[id=tr,remark={Title, article, and journal are all broader than just ''image-based''!}]{Today's}{Image-based} science relies heavily on software resources\added[id=tr]{.} 
+\deleted[id=tr]{for population
 and subject-specific multiple modality studies.  New imaging
 technologies and application domains lead to continuous algorithmic
-innovation.  A standard part of developing and vetting new
+innovation.}  A standard part of developing and vetting new
 approaches to data transformation and analysis involves comparison with other methods previously
 established within the community.  Public availability, including
 open source distribution, of established packages has significantly
@@ -171,7 +173,7 @@ provide access to an open source distribution and are indexed in a resource like
 Neuroimaging Informatics Tools and Resources Clearinghouse%
 \footnote{
 http://www.nitrc.org
-}.  While we applaud all efforts to evaluate such
+}.  While we \replaced[id=tr]{welcome and support}{applaud} all efforts to evaluate such
 technological developments (which are  critical to establishing the methods 
 as viable translational tools) the lack of guiding principles for comparative
 evaluations can result in critical susceptibility to {\em instrumentation bias}.
@@ -183,7 +185,8 @@ The problems with this are obvious and nefarious:  in brief, authors want to sho
 that their method is ``the best'' and allocate resources accordingly.  
 In this paper we propose a set of guidelines that will help authors and 
 reviewers minimize the presence of this type of bias as it applies to
-computational methods in the imaging sciences.
+computational methods\added[id=tr]{, specifically} in\added[id=tr]{, but not
+limited to,} the imaging sciences.
 \end{abstract}
 \begin{keyword}
 open science \sep open data \sep comparison \sep reproducibility  \sep software \sep instrument bias
@@ -257,14 +260,16 @@ often presented and the corresponding possibility of {\it instrumentation
 bias} \cite{sackett1979} (considering software  as a type of
 instrument requiring proper ``calibration'' for accurate measurements).
 Based on our experience (including our own mistakes),
-we propose a preliminary set of guidelines that seek to minimize such bias, understanding that
+we propose a preliminary set of guidelines that seek to minimize such bias,
+\added[id=tr]{with the} understanding that
 the discussion will require a more comprehensive response from the larger neuroscience community.
 We intend this commentary to raise awareness in both
 authors and reviewers to issues that arise when comparing quantitative
-algorithms for image registration.  While image registration is our
-focus, these recommendations are relevant for several other
+algorithms\replaced[id=tr]{. Although herein we focus specifically on image
+registration, }{ for image registration.  While image registration is our
+focus,} these recommendations are relevant for \deleted[id=tr]{several} other
 application areas in biologically-focused computational 
-image analysis.  This comment complements recent papers that highlight
+image analysis\added[id=tr]{, and for reproducible computational experiments in general}.  This comment complements recent papers that highlight
 statistical bias \cite{kriegeskorte2009,vul2012}, bias induced by
 registration metrics \cite{tustison2012}, and registration strategy \cite{yushkevich2010} and guideline papers for
 software development \cite{prlic2012}.
@@ -298,14 +303,20 @@ Theorems'' provide bounds on solution quality that show otherwise
 i.e. specifically that ``improvement of performance in problem-solving
 hinges on using prior information to match procedures to
 problems''\cite{Wolpert1997}. Therefore, the first thing that authors of new algorithms should do is
-identify how their methods differ with respect to other freely
+identify how their methods differ with respect to other
+\deleted[id=tr,remark={This shouldn't make a difference for the discussion of scope.}]{freely}
 available techniques in terms of the use of prior knowledge.
 Furthermore, is it possible to incorporate similar prior knowledge
-into existing methods simply by asking the authors of these algorithms
-how this might be achieved?
+into existing methods\replaced[id=tr,remark={Not well worded... ``incorporation'' doesn't happen
+just by asking.}]{? }{ simply by asking the authors of these algorithms
+how this might be achieved?}
 
 \subsubsection{Demand that the algorithm developers provide default parameters for the 
 context being investigated}
+\added[id=tr]{REMARK - this is a recommendation more geared towards
+rewviewers, wheras most others a geared towards authors. I think we should
+clearly separate the two, maybe different subsections?}
+
 Expert knowledge of a specific program and/or algorithm is most
 likely found with the original developers who would be in a position to
 provide optimal parameterization.  To help this procedure be fruitful,
@@ -345,15 +356,18 @@ tuning.  None of these are addressed by \cite{clarkson2011} which may decrease t
 
 \subsubsection{Co-authors should verify findings}
 
+\added[id=tr]{REMARK - this section would fit better under ``Publishing the evaluation''.}
+
 Although different journals have varying guidelines for determining
 co-authorship, there is at least an implied sense of responsibility for
 an article's contents assumed by each of the co-authors.  Strategies
 taken by journal editorial boards are used to reduce undeserving
 authorship attribution such as requiring the listing of the specific
 contributions of each co-author.  Additional proposals have included
-signed statements of responsibility for the contents of the article
+signed statements of responsibility for the contents of \replaced[id=tr]{an}{the} article
 \cite{nature2007}.  We suggest that at least one co-author
-independently verify a subset of the results by running the processing
+independently verify a subset of the results by running the
+\replaced[id=tr]{data processing and analysis}{processing}
 on their own computer.   The point of this exercise is to verify not only
 reproducibility but also that the process can be explained in
 sufficient detail.
