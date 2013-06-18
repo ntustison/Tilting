@@ -426,14 +426,17 @@ instrumentation bias \cite{sackett1979}.  For example, in
 a recent paper \cite{haegelen2013} (similar issues can
 be found in \cite{luo2013,wu2013}), the authors compared
 their ANIMAL registration algorithm with SyN \cite{avants2011} and determined
-that ``[r]egistration with ANIMAL was better than with SyN for
+that ``\replaced[id=tr,remark={It is generally acceptable to change
+capitalization of a quote's first words without markup to accomodate the
+grammatical context.}]{r}{[r]}egistration with ANIMAL was better than with SyN for
 the left thalamus'' in a cohort of Parkinson's disease patients.
 One of the stated reasons for using ANIMAL was ``because of
 [the authors']
 extensive experience with this technique.'' However, for SyN,
-the authors provide no equivalent assurance---no contact
+the authors provide no equivalent assurance---\replaced[id=tr,remark={This part
+is really not related to the ``include parameters'' recommendation.}]{no parameters were}{contact
 was made with the primary developers of ANTs (SyN) nor
-were any parameters listed for independent verification
+were any parameters} listed for independent verification
 by reviewers or readers of the article.
 
 
@@ -463,10 +466,13 @@ http://www.nitrc.org/plugins/mwiki/index.php/brains:N4ITK
 }
 While each version is dependent on the original source
 code, there could exist subtle variations which can affect performance.
-As a particular case, the \verb#c3d#
+As \replaced[id=tr]{one specific example}{a particular case}, the \verb#c3d#
 implementation hard-codes
-the certain parameter values with no access to modify them by the user, 
-potentially leading to suboptimal performance.
+\deleted[id=tr]{the} certain parameter values with no access to modify them by
+the user\replaced[id=tr,remark={Or maybe it performs better for it. Anyway,
+you are making your point without needing to predict whether results with fixed
+parameters are always better or worse.}]{.}{, 
+potentially leading to suboptimal performance.}
 
 \subsubsection{Provide computational platform details of the evaluation}
 A recent article \cite{gronenschild2012} pointed out significant
@@ -486,8 +492,9 @@ failures during processing should be mentioned and whether
 or not these data were excluded from subsequent analysis.
 
 
-\subsubsection{Resulting images should be publicly posted 
-and/or online public resources should be used
+\subsubsection{Resulting \replaced[id=tr]{data}{images} should be
+\replaced[id=tr]{made available online}{publicly posted 
+and/or online public resources should be used}
 }
 
 The current publishing paradigm limits the quantity of
@@ -498,7 +505,13 @@ This results in possible selection bias where results provided
 in the manuscript are selected by the authors for demonstrating
 the effect postulated at the onset of the study.  Thus, differences
 in performance assessment tend to be exaggerated based strictly
-on visual representations in the paper.  
+on visual representations in the paper.
+
+\added[id=tr]{Publication simply in print (or as figures in a PDF file) and
+its limitations in terms of dynamic range or spatial resolution also
+severely limits the ability of reviewers and readers to perform more
+sophisticated evaluation beyond simple visual inspection.}
+
 Alternatively (or additionally), online resources such as the
 the LONI Segmentation Validation Engine \cite{shattuck2009}%
 \footnote{
@@ -512,12 +525,12 @@ proposed methodologies (e.g. \cite{eskildsen2012}).
 
 %figshare
 
-\subsubsection{Properly contextualize comparisons and motivate performance differences}
+\subsubsection{\replaced[id=tr]{Put comparisons and observed performance differences into context}{Properly contextualize comparisons and motivate performance differences}}
 In addition to algorithmic and study specifics, it is important to
 discuss potential limitations concerning qualitative and/or quantitative
 assessment metrics.  In \cite{rohlfing2012}, T. Rohlfing pointed out
 deficiencies in using standard overlap measures and image similarity
-metrics in quantifying performance.  Other issues, such as biological
+metrics in quantifying performance\added[id=tr]{ of image registration methods}.  Other issues, such as biological
 plausibility of the resulting transforms, need to also be considered.
 Also important for inclusion is discussion on the possible reasons for performance
 disparity.  If one algorithm outperforms another, reporting of those findings
@@ -525,6 +538,8 @@ would be much more significant if the authors discussed possible reasons
 for relative  performance levels.  
 
 \subsection{Relevance of the current publishing paradigm}
+\added[id=tr]{REMARK -- sorry, but is this section really at all relevant to
+the topic of the article?}
 There is a very active discussion within the broad scientific
 community regarding current publishing practices.  Issues 
 such as open access to scientific findings and exorbitant 
@@ -550,12 +565,17 @@ unknowingly effect study outcomes.  There is no vetting agency for
 ensuring that analysis programs used for research are reasonably error-free.
 In addition, these software packages are simply ``black
 boxes'' to many researchers who are not formally trained to debug
-code.  And even to those of us who are, debugging other people's code
+code\added[id=tr,remark={I like to call this ``The SPM Effect'' - even a room
+full of monkeys with an MR scanner and a Matlab license will eventually find a
+``significant'' fMRI or VBM finding.}]{, and who, in most cases, have only a
+very superficial understandings of the algorithms that they apply}.  And even
+to those of us who are, \replaced[id=tr]{understanding someone else's code, perhaps
+implemented in an unfamiliar programming language and poor coding style,}{debugging other people's code} 
 is oftentimes very difficult.  To this end, algorithmic comparisons are
 a very good way of evaluating general performance.  We hope that the
 guidelines proposed in this editorial help the community
 in future comparative assessments and avoid errors in scientific computing that
-may lead, ultimately, to publication of invalid results \cite{merali2010}.
+may \replaced[id=tr]{otherwise lead to}{lead, ultimately, to} publication of invalid results \cite{merali2010}.
 
 %% References with bibTeX database:
 
@@ -581,6 +601,8 @@ may lead, ultimately, to publication of invalid results \cite{merali2010}.
 % \bibitem{}
 
 % \end{thebibliography}
+
+\listofchanges
 
 \end{document}
 
