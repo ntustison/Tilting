@@ -539,9 +539,12 @@ disparity.  If one algorithm outperforms another, reporting of those findings
 would be much more significant if the authors discussed possible reasons
 for relative  performance levels.  
 
+
 \subsection{Relevance of the current publishing paradigm}
 \added[id=tr]{REMARK -- sorry, but is this section really at all relevant to
 the topic of the article?}
+\added[id=nt]{Fine with me to get rid of this section.  We are over
+the word limit anyway.}
 There is a very active discussion within the broad scientific
 community regarding current publishing practices.  Issues 
 such as open access to scientific findings and exorbitant 
