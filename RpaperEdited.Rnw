@@ -133,8 +133,8 @@
 \begin{frontmatter}
 
 \title{Instrumentation bias in the use and evaluation of scientific
-software\added[id=tr,remark={Just a suggestion}]{: Recommendations for reprodubible computational
-experiments}}
+software\added[id=tr,remark={Just a suggestion}]{: Recommendations for reproducible
+\replaced[id=nt]{practices in the computational sciences}{experiments}}}
 
 \author[label1]{Nicholas J.~Tustison
   \fnref{label0}}
@@ -160,7 +160,7 @@ experiments}}
 \linenumbers
 
 \begin{abstract}
-\replaced[id=tr,remark={Title, article, and journal are all broader than just ''image-based''!}]{Today's}{Image-based} science relies heavily on software resources\added[id=tr]{.} 
+\replaced[id=tr,remark={Title, article, and journal are all broader than just ''image-based''!}]{Current}{Image-based} science relies heavily on software resources\added[id=tr]{.} 
 \deleted[id=tr]{for population
 and subject-specific multiple modality studies.  New imaging
 technologies and application domains lead to continuous algorithmic
@@ -269,7 +269,7 @@ algorithms\replaced[id=tr]{. Although herein we focus specifically on image
 registration, }{ for image registration.  While image registration is our
 focus,} these recommendations are relevant for \deleted[id=tr]{several} other
 application areas in biologically-focused computational 
-image analysis\added[id=tr]{, and for reproducible computational experiments in general}.  This comment complements recent papers that highlight
+image analysis\replaced[id=nt]{, and for reproducible computational science in general}{\added[id=tr]{, and for reproducible computational experiments in general}}.  This comment complements recent papers that highlight
 statistical bias \cite{kriegeskorte2009,vul2012}, bias induced by
 registration metrics \cite{tustison2012}, and registration strategy \cite{yushkevich2010} and guideline papers for
 software development \cite{prlic2012}.
@@ -296,11 +296,12 @@ derive from basic scientific principles of clarity and reproducibility.
 % restrict the search space to the relevant parameters for a narrowly 
 % specified problem.  
 
-The very idea that one (e.g., registration) algorithm 
+The very idea that one (e.g. registration) algorithm 
 could perform better than all other algorithms on
 all types of data is fundamentally flawed.  Indeed, the ``No Free Lunch
-Theorems'' provide bounds on solution quality that show otherwise
-i.e. specifically that ``improvement of performance in problem-solving
+Theorems'' provide\added[id=nt]{s} bounds on solution quality that show otherwise
+i.e. \added[id=nt]{it specifically demonstrates} that ``improvement 
+of performance in problem-solving
 hinges on using prior information to match procedures to
 problems''\cite{Wolpert1997}. Therefore, the first thing that authors of new algorithms should do is
 identify how their methods differ with respect to other
@@ -368,7 +369,8 @@ signed statements of responsibility for the contents of \replaced[id=tr]{an}{the
 \cite{nature2007}.  We suggest that at least one co-author
 independently verify a subset of the results by running the
 \replaced[id=tr]{data processing and analysis}{processing}
-on their own computer.   The point of this exercise is to verify not only
+on their own \replaced[id=nt]{computational platform}{computer}.   
+The point of this exercise is to verify not only
 reproducibility but also that the process can be explained in
 sufficient detail.
 
@@ -397,7 +399,8 @@ LONI,%
 http://www.loni.ucla.edu/Research/Databases/
 }, and
 others, evaluations should include (if not be exhausted by)
-comparisons using such data.  While evaluation on specific abnormal cohorts
+comparisons using such data.  While evaluation on \replaced[id=nt]{private}
+{specific abnormal} cohorts
 might exclude such possibilities, such specific evaluations should
 be extensively motivated in the introduction and/or discussion.
 For example, if a particular algorithm with general application is
@@ -506,7 +509,6 @@ in the manuscript are selected by the authors for demonstrating
 the effect postulated at the onset of the study.  Thus, differences
 in performance assessment tend to be exaggerated based strictly
 on visual representations in the paper.
-
 \added[id=tr]{Publication simply in print (or as figures in a PDF file) and
 its limitations in terms of dynamic range or spatial resolution also
 severely limits the ability of reviewers and readers to perform more
