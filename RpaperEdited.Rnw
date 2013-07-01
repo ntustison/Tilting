@@ -166,8 +166,8 @@ and subject-specific multiple modality studies.  New imaging
 technologies and application domains lead to continuous algorithmic
 innovation.}  A standard part of developing and vetting new
 approaches to data transformation and analysis involves comparison with other methods previously
-established within the community.  Public availability, including
-open source distribution, of established packages has significantly
+established within the community.  Public availability\deleted[id=hj,remark{Redundant}]{, including
+open source distribution,} of established packages has significantly
 facilitated these comparative evaluations, particularly when the packages
 provide access to an open source distribution and are indexed in a resource like the 
 Neuroimaging Informatics Tools and Resources Clearinghouse%
@@ -181,8 +181,11 @@ In this
 case, the bias occurs most strongly when authors of a new algorithm
 also conduct the algorithm's evaluation, frequently by
 running their own experiments against a set of ``competing methods.''
-The problems with this are obvious and nefarious:  in brief, authors want to show
-that their method is ``the best'' and allocate resources accordingly.  
+The problems with this are obvious and nefarious:  in brief, authors \replaced[id=hj,remark={less
+accusing language}]{are incentivized to spend months or years fine tuning
+their methods parameters, and invest relatively
+little effort exploring external methods parameter space.}{want to show
+that their method is ``the best'' and allocate resources accordingly. } 
 In this paper we propose a set of guidelines that will help authors and 
 reviewers minimize the presence of this type of bias as it applies to
 computational methods\added[id=tr]{, specifically} in\added[id=tr]{, but not
@@ -260,7 +263,7 @@ often presented and the corresponding possibility of {\it instrumentation
 bias} \cite{sackett1979} (considering software  as a type of
 instrument requiring proper ``calibration'' for accurate measurements).
 Based on our experience (including our own mistakes),
-we propose a preliminary set of guidelines that seek to minimize such bias,
+we propose a preliminary set of guidelines that seek\added[id=hj]{s} to minimize such bias,
 \added[id=tr]{with the} understanding that
 the discussion will require a more comprehensive response from the larger neuroscience community.
 We intend this commentary to raise awareness in both
@@ -299,18 +302,22 @@ derive from basic scientific principles of clarity and reproducibility.
 The very idea that one (e.g. registration) algorithm 
 could perform better than all other algorithms on
 all types of data is fundamentally flawed.  Indeed, the ``No Free Lunch
-Theorems'' provide\added[id=nt]{s} bounds on solution quality that show otherwise
+Theorems''\cite{Wolpert1997} provide\added[id=nt]{s} bounds on solution quality that show otherwise
 i.e. \added[id=nt]{it specifically demonstrates} that ``improvement 
 of performance in problem-solving
 hinges on using prior information to match procedures to
-problems''\cite{Wolpert1997}. Therefore, the first thing that authors of new algorithms should do is
+problems''. Therefore, the first thing that authors of new algorithms should do is
 identify how their methods differ with respect to other
 \deleted[id=tr,remark={This shouldn't make a difference for the discussion of scope.}]{freely}
 available techniques in terms of the use of prior knowledge.
-Furthermore, is it possible to incorporate similar prior knowledge
-into existing methods\replaced[id=tr,remark={Not well worded... ``incorporation'' doesn't happen
-just by asking.}]{? }{ simply by asking the authors of these algorithms
-how this might be achieved?}
+Furthermore, \replaced[id=hj,remark={Make into statement rather than unanswered question}]{
+the author must consider if it is possible to incorporate similar prior knowledge into existing
+methods.
+}{}
+%{is it possible to incorporate similar prior knowledge
+%into existing methods\replaced[id=tr,remark={Not well worded... ``incorporation'' doesn't happen
+%just by asking.}]{? }{ simply by asking the authors of these algorithms
+%how this might be achieved?} }
 
 \subsubsection{Demand that the algorithm developers provide default parameters for the 
 context being investigated}
@@ -332,7 +339,16 @@ assortment of parameter files on the wiki page%
 }
 listed in tabular format complete with short
 description (including applied modality and object of interest) and
-any publications which used that specific parameter file.  
+any publications which used that specific parameter file. 
+\added[id=hj]{Another
+example is the National Alliance for Medical Image Computing registration
+use case inventory
+\footnote{
+ http://www.na-mic.org/Wiki/index.php/Projects:RegistrationDocumentation:UseCaseInventory
+} %
+where each listed case comprises a test dataset, a guided step-by-step tutorial, the solution,
+and a custom Registration Parameter Presets file with optimized registration parameters.
+}
 
 \subsubsection{Do not implement your own version of the algorithm particularly
 if one is available from the original authors.
@@ -463,9 +479,12 @@ a module in \verb#c3d#,%
 \footnote{
 http://www.itksnap.org8/pmwiki/pmwiki.php?n=Convert3D.Documentation
 }
-and as a plugin in the BRAINS suite.%
+and as a plugin in the BRAINSTools suite.%
 \footnote{
 http://www.nitrc.org/plugins/mwiki/index.php/brains:N4ITK
+}
+\footnote{
+https://github.com/BRAINSia/BRAINSTools
 }
 While each version is dependent on the original source
 code, there could exist subtle variations which can affect performance.
@@ -489,7 +508,11 @@ as well as the reporting of computational details for reproducibility.
 In addition to disclosure of all parameters associated with the
 methods to be compared, all processing steps from the raw
 to the final processed images in the workflow
-need to be specified.    Justification for any deviation
+need to be specified.  \added[id=hj]{Tools like the nipype\cite{Gorgolewski2011} capture
+this provenance information in a formal and rigourous way, but at
+a minimum the shell scripts or screen shots of the parameter choices
+should be made available.}
+Justification for any deviation
 of steps between algorithms needs to be provided.  Additionally,
 failures during processing should be mentioned and whether
 or not these data were excluded from subsequent analysis.
@@ -541,6 +564,8 @@ for relative  performance levels.
 
 
 \subsection{Relevance of the current publishing paradigm}
+\added[id=hj]{I agree with Torsten here.  It may be material for a cover letter
+to be submitted with the article.}
 \added[id=tr]{REMARK -- sorry, but is this section really at all relevant to
 the topic of the article?}
 \added[id=nt]{Fine with me to get rid of this section.  We are over
