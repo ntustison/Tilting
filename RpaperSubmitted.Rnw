@@ -61,29 +61,26 @@ software: Recommendations for reproducible practices in the computational scienc
 \section{}
 Current science relies heavily on software resource. 
   A standard part of developing and vetting new
-approaches to data transformation and analysis involves comparison with other methods previously
+approaches to data processing and analysis involves comparison with other methods previously
 established within the community.  Public availability of established packages has significantly
 facilitated these comparative evaluations, particularly when the packages
-provide access to an open source distribution and are indexed in a resource like the 
+provide access to an open source distribution and are indexed in a public resource like the 
 Neuroimaging Informatics Tools and Resources Clearinghouse%
 \footnote{
 http://www.nitrc.org
-}.  While we welcome and support all efforts to evaluate such
-technological developments (which are  critical to establishing the methods 
-as viable translational tools) the lack of guiding principles for comparative
-evaluations can result in critical susceptibility to {\em instrumentation bias}.
-In this
-case, the bias occurs most strongly when authors of a new algorithm
+}.  While we welcome and support all efforts to evaluate scientific software, 
+the lack of guiding principles for comparative
+evaluations can result in susceptibility to {\em instrumentation bias}.
+This bias occurs most notably when authors of a new algorithm
 also conduct the algorithm's evaluation, frequently by
 running their own experiments against a set of ``competing methods.''
 The problems with this are obvious and nefarious:  in brief, authors are 
-incentivized to spend months or years fine tuning their methods' parameters
-and invest relatively little effort exploring the parameter space of external
+strongly motivated to spend months or years fine tuning their methods' parameters
+and invest relatively little effort exploring the parameter space of others'
 methods.
 In this paper we propose a set of guidelines that will help authors and 
-reviewers minimize the presence of this type of bias as it applies to
-computational methods, specifically in, but not
-limited to, the imaging sciences.
+reviewers minimize the occurrence of this type of bias as it applies to
+computational methods using the imaging sciences as an example.
 \tiny
 \keyFont{ \section{Keywords:} 
 open science best practices comparison reproducibility software }
@@ -113,11 +110,24 @@ in analysis tools.
 
 As fellow scientists who actively participate in neuroscience
 research through our contributions to the Insight
-Toolkit
-(e.g. \cite{johnson2007,tustison2009a,tustison2012a})
-and other packages such as the Advanced Normalization Tools (ANTs),%
+Toolkit%
 \footnote{
-http://www.picsl.upenn.edu/ANTs
+http://www.itk.org
+}
+(e.g. \cite{johnson2007,ibanez2009,tustison2012a})
+and other packages such as MindBoggle,%
+\footnote{
+http://www.mindboggle.info
+}
+Nipype%
+\footnote{
+http://nipy.org/nipype
+} 
+\citep{gorgolewski2011}, 
+and
+the Advanced Normalization Tools (ANTs),%
+\footnote{
+http://stnava.github.io/ANTs/
 } \citep{avants2011,avants2010}
 we notice an increasing number of publications that intend a
 fair comparison of algorithms which, in principle, is
@@ -154,27 +164,25 @@ derive from basic scientific principles of clarity and reproducibility.
 The very idea that one (e.g. registration) algorithm 
 could perform better than all other algorithms on
 all types of data is fundamentally flawed.  Indeed, the ``No Free Lunch
-Theorems'' provides bounds on solution quality that show otherwise
-i.e. it specifically demonstrates that ``improvement of performance 
+Theorem'' provides bounds on solution quality.  That is, it specifically 
+demonstrates that ``improvement of performance 
 in problem-solving
 hinges on using prior information to match procedures to
 problems'' \citep{Wolpert1997}. Therefore, the first thing that 
 authors of new algorithms should do is
 identify how their methods differ with respect to other
 available techniques in terms of the use of prior knowledge.  Furthermore,
-the author must consider if it is possible to incorporate similar prior
-knowledge into existing methods.
+the author must consider if it is possible to incorporate prior
+across existing methods.
 
 \subsubsection{Demand that the algorithm developers 
 provide default parameters for the comparative context being investigated}
 
 Expert knowledge of a specific program and/or algorithm is most
-likely found with the original developers who would be in a position to
-provide optimal parameterization.  To help this procedure be fruitful,
-one should be willing to share example datasets.  Sharing data with
-algorithm developers allows the developers to facilitate
-comparisons by providing relevant parameter files and sample scripts
-that detail command line calls.  For example, the developers of
+likely found with the original developers[,] who would be in a position to
+provide optimal parameterization.  Relevant parameter files and sample scripts
+that detail command line calls should accompany an algorithm to aid in 
+its proper use, evaluation, and comparison.  For example, the developers of
 the image registration program elastix \citep{klein2010} provide an
 assortment of parameter files on the wiki page%
 \footnote{
@@ -188,7 +196,7 @@ http://www.na-mic.org/Wiki/index.php/Projects:RegistrationDocumentation:UseCaseI
 }
 where each listed case comprises a test dataset, a guided step-by-step tutorial, the solution, and a custom Registration Parameter Presets file with optimized registration parameters.
 
-\subsubsection{Do not implement your own version of the algorithm particularly
+\subsubsection{Do not implement your own version of an algorithm, particularly
 if one is available from the original authors.
 If you must re-implement, consider making your implementation available}
 
@@ -202,15 +210,15 @@ code developed not by the original authors but by the
 group doing the comparison.   For
 example, in \cite{clarkson2011}, the authors compared three algorithms
 for estimating cortical thickness.  Two of the algorithms were
-coded by the authors of the study while the third was used ``off the shelf'' 
-having been extensively
-tuned and well-documented by the original authors.
+coded by the authors of the study while the third was used ``off the shelf'', 
+despite the original authors' documentation accompanying the algorithm which 
+outlines the necessity for tuning its parameters.
 Thus, a natural question to ask is whether the performance difference
 is due to the algorithm itself, implementation quality, and/or the parameter 
 tuning.  None of these are addressed by \cite{clarkson2011} which may decrease the publication's usefulness.
 
 
-\subsubsection{Comparisons should be performed on publicly available data}
+\subsubsection{Perform comparisons on publicly available data}
 For reasons of reproducibility and transparency, evaluations should be performed
 using publicly available data sets.  Given the rather large number
 of such institutional efforts including
@@ -254,7 +262,8 @@ analysis on public data.
 In \cite{klein2009},
 14 nonlinear registration algorithms were compared using
 four publicly available, labeled brain MRI data sets.
-As part of the study, the respective algorithms' authors tuned
+As part of the study, the respective algorithms' authors 
+were given an opportunity to tune
 the parameters to ensure good
 performance which were then distributed 
 on Prof. Klein's website.%
@@ -269,14 +278,11 @@ be found in \cite{luo2013,wu2013}), the authors compared
 their ANIMAL registration algorithm with SyN \citep{avants2011} and determined
 that ``registration with ANIMAL was better than with SyN for
 the left thalamus'' in a cohort of Parkinson's disease patients.
-Given the authors extensive experience and investment with ANIMAL, 
-the reader can assume some confidence in minimal instrumentation 
-bias although inclusion of the specific ANIMAL parameters used
-would be informative and preferred.  For SyN, however, we do not
-have equivalent assurance of experience with the algorithm nor
-are any parameters listed for independent verification
+The difference in the authors' experience and investment
+between the two algorithms could bias algorithmic performance
+assessment.  However, inclusion of parameter settings for ANIMAL
+and SyN would permit independent verification
 by reviewers or readers of the article.
-
 
 \subsubsection{Provide details as to the source of the algorithm}
 Origin 
@@ -284,13 +290,13 @@ should be provided for any code or package used during the
 evaluation.  For example, N4 \citep{tustison2010} is a well-known
 bias correction algorithm first made available as a tech report
  \citep{tustison2009a}.  However, since
-its inclusion in the Insight Toolkit, different instantiations 
+its inclusion in the Insight Toolkit, different programs 
 have been made available. N4 is also available in ANTs (the only 
 version directly maintained by the original authors), as a module in Slicer,%
 \footnote{
 http://www.slicer.org/slicerWiki/index.php/Documentation/4.2/Modules/N4ITKBiasFieldCorrection
 }
-a wrapper of the Slicer module in nipype,%
+a wrapper of the Slicer module in Nipype,%
 \footnote{
 http://www.mit.edu/~satra/nipype-nightly/interfaces/generated/nipype.interfaces.slicer.filtering.n4itkbiasfieldcorrection.html
 }
@@ -329,24 +335,22 @@ sufficient detail.
 \subsubsection{Provide computational platform details of the evaluation}
 A recent article \citep{gronenschild2012} pointed out significant
 differences in FreeSurfer output that varied with  release
-version and with operating systems.  While the former is to be
+version and with operating system.  While the former is to be
 expected given upgrades and bug fixes which occur between releases,
 the latter underscores both the need for consistency in study processing
 as well as the reporting of computational details for reproducibility.
 
 \subsubsection{Supply pre- and post-processing steps}
 In addition to disclosure of all parameters associated with the
-methods to be compared, all processing steps from the raw
+methodologies to be compared, all processing steps from the raw
 to the final processed images in the workflow
 need to be specified.    
-Tools like the nipype \citep{gorgolewski2011} capture
+Tools like Nipype \citep{gorgolewski2011} capture
 this provenance information in a formal and rigorous way, but at
 a minimum the shell scripts or screen shots of the parameter choices
 should be made available.
 Justification for any deviation
-of steps between algorithms needs to be provided.  Additionally,
-failures during processing should be mentioned and whether
-or not these data were excluded from subsequent analysis.
+of steps between algorithms needs to be provided.  
 
 
 \subsubsection{Post the resulting data online}
@@ -385,9 +389,9 @@ assessment metrics.  In \cite{rohlfing2012}, the author pointed out
 deficiencies in using standard overlap measures and image similarity
 metrics in quantifying performance of image registration methods.  Other issues, such as biological
 plausibility of the resulting transforms, need to also be considered.
-Also important for inclusion is discussion on the possible reasons for performance
+Also important for inclusion is discussion of the possible reasons for performance
 disparity.  If one algorithm outperforms another, reporting of those findings
-would be much more significant if the authors discussed possible reasons
+would be much more significant if the authors discuss possible reasons
 for relative  performance levels.  
 
 \section{Conclusion}
@@ -399,9 +403,9 @@ ensuring that analysis programs used for research are reasonably error-free.
 In addition, these software packages are simply ``black
 boxes'' to many researchers who are not formally trained to debug
 code, and who, in most cases, have only a
-very superficial understandings of the algorithms that they apply.  And even
-to those of us who are, understanding someone else's code, perhaps
-implemented in an unfamiliar programming language and poor coding style, 
+very superficial understanding of the algorithms that they apply.  And even
+to those of us who are trained to debug code, understanding someone else's code, perhaps
+implemented in an unfamiliar programming language and different coding style, 
 is oftentimes very difficult.  To this end, algorithmic comparisons are
 a very good way of evaluating general performance.  We hope that the
 guidelines proposed in this editorial help the community
