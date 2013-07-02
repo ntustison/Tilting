@@ -1,0 +1,420 @@
+
+\documentclass{frontiersSCNS} % for Science articles
+
+
+\usepackage{epigraph}
+\usepackage{url,lineno}
+%\usepackage[colorlinks=true,linkcolor=blue]{hyperref}
+
+\copyrightyear{}
+\pubyear{}
+
+\def\journal{Neuroscience}%%% write here for which journal %%%
+\def\DOI{}
+\def\articleType{Opinion}
+\def\keyFont{\fontsize{8}{11}\helveticabold }
+\def\firstAuthorLast{Tustison {et~al.}} %use et al only if is more than 1 author
+\def\Authors{Nicholas J. Tustison\,$^{1,*}$, Hans Johnson\,$^{2}$, Torsten Rohlfing\,$^{3}$,
+Arno Klein\,$^{4}$, Satrajit Ghosh\,$^{5}$, Luis Ibanez\,$^{6}$, and Brian A. Avants\,$^{7}$
+ }
+% Affiliations should be keyed to the author's name with superscript numbers and be listed as follows: Laboratory, Institute, Department, Organization, City, State abbreviation (USA, Canada, Australia), and Country (without detailed address information such as city zip codes or street names).
+% If one of the authors has a change of address, list the new address below the correspondence details using a superscript symbol and use the same symbol to indicate the author in the author list.
+\def\Address{$^{1}$University of Virginia, Department of Radiology and Medical Imaging, Charlottesville, VA, USA \\
+$^{2}$University of Iowa, Department of Psychiatry, Iowa City, Iowa, USA \\
+$^{3}$SRI International, Menlo Park, CA, USA \\
+$^{4}$State University of New York, Department of Psychiatry and Behavioral Science, Stony Brook, NY, USA \\
+$^{5}$Massachusetts Institute of Technology, McGovern Institute for Brain Research, Cambridge, MA, USA \\
+$^{6}$Kitware, Inc., Clifton Park, NY, USA \\
+$^{7}$Penn Image Computing and Science Laboratory, University of Pennsylvania, Department of Radiology, Philadelphia, PA, USA }
+% The Corresponding Author should be marked with an asterisk
+% Provide the exact contact address (this time including street name and city zip code) and email of the corresponding author
+\def\corrAuthor{Nick Tustison}
+\def\corrAddress{University of Virginia, Department of Radiology and Medical Imaging,  480 Ray C Hunt Drive, Charlottesville, VA, 22903}
+\def\corrEmail{ntustison@virginia.edu}
+
+% \color{FrontiersColor} Is the color used in the Journal name, in the title, and the names of the sections
+
+
+\graphicspath{
+             {./Figures/}
+             }
+
+\begin{document}
+\onecolumn
+\firstpage{1}
+
+\title[Instrumentation bias in scientific software]{Instrumentation bias in the use and evaluation of scientific
+software: Recommendations for reproducible practices in the computational sciences}
+\author[\firstAuthorLast ]{\Authors}
+\address{}
+\correspondance{}
+\editor{}
+\topic{}
+
+
+\title{Instrumentation bias in the use and evaluation of scientific
+software: Recommendations for reproducible practices in the computational sciences}
+
+\maketitle
+
+\begin{abstract}
+\section{}
+Current science relies heavily on software resource. 
+  A standard part of developing and vetting new
+approaches to data transformation and analysis involves comparison with other methods previously
+established within the community.  Public availability of established packages has significantly
+facilitated these comparative evaluations, particularly when the packages
+provide access to an open source distribution and are indexed in a resource like the 
+Neuroimaging Informatics Tools and Resources Clearinghouse%
+\footnote{
+http://www.nitrc.org
+}.  While we welcome and support all efforts to evaluate such
+technological developments (which are  critical to establishing the methods 
+as viable translational tools) the lack of guiding principles for comparative
+evaluations can result in critical susceptibility to {\em instrumentation bias}.
+In this
+case, the bias occurs most strongly when authors of a new algorithm
+also conduct the algorithm's evaluation, frequently by
+running their own experiments against a set of ``competing methods.''
+The problems with this are obvious and nefarious:  in brief, authors are 
+incentivized to spend months or years fine tuning their methods' parameters
+and invest relatively little effort exploring the parameter space of external
+methods.
+In this paper we propose a set of guidelines that will help authors and 
+reviewers minimize the presence of this type of bias as it applies to
+computational methods, specifically in, but not
+limited to, the imaging sciences.
+\tiny
+\keyFont{ \section{Keywords:} 
+open science best practices comparison reproducibility software }
+\end{abstract}
+
+
+
+\section{Introduction}
+
+\epigraph{By honest I don't mean that you only tell what's true. But you make clear the
+entire situation. You make clear all the information that is required for somebody else
+who is intelligent to make up their mind.}{Richard Feynman}
+
+
+The neuroscience community significantly benefits from the proliferation
+of imaging-related analysis software packages.
+Established packages such as SPM \citep{Ashburner2012},
+the FMRIB Software Library (FSL) \citep{Jenkinson2012}, Freesurfer
+\citep{fischl2012}, Slicer \citep{fedorov2012} and
+the AFNI toolkit \citep{cox2012} aid neuroimaging researchers
+around the world in performing complex analyses as part of
+ongoing neuroscience research.
+In conjunction with distributing robust software tools, neuroimaging 
+packages also continue to incorporate
+algorithmic innovation for improvement
+in analysis tools.
+
+As fellow scientists who actively participate in neuroscience
+research through our contributions to the Insight
+Toolkit
+(e.g. \cite{johnson2007,tustison2009a,tustison2012a})
+and other packages such as the Advanced Normalization Tools (ANTs),%
+\footnote{
+http://www.picsl.upenn.edu/ANTs
+} \citep{avants2011,avants2010}
+we notice an increasing number of publications that intend a
+fair comparison of algorithms which, in principle, is
+a good thing.  Our concern is the lack of detail with 
+which these comparisons are
+often presented and the corresponding possibility of {\it instrumentation
+bias} \citep{sackett1979} (considering software  as a type of
+instrument requiring proper ``calibration'' for accurate measurements).
+Based on our experience (including our own mistakes),
+we propose a preliminary set of guidelines that seek to minimize such bias
+with the understanding that
+the discussion will require a more comprehensive response from the larger neuroscience community.
+We intend this commentary to raise awareness in both
+authors and reviewers to issues that arise when comparing quantitative
+algorithms. Although herein we focus specifically on image
+registration, these recommendations are relevant for  other
+application areas in biologically-focused computational 
+image analysis, and for reproducible computational science in general.  
+This comment complements recent papers that highlight
+statistical bias \citep{kriegeskorte2009,vul2012}, bias induced by
+registration metrics \citep{tustison2012}, and registration strategy \citep{yushkevich2010} and guideline papers for software development \citep{prlic2012}.
+
+\section{Guidelines}
+
+A comparative analysis paper's longevity and impact on future scientific
+explorations is directly related to the completeness of the evaluation.  
+A complete evaluation requires preparatory effort (before any
+experiment is performed) and effort to publish its details and results.
+Here, we suggest general guidelines for both of these steps most of which
+derive from basic scientific principles of clarity and reproducibility.
+
+\subsection{Designing the evaluation study}
+
+The very idea that one (e.g. registration) algorithm 
+could perform better than all other algorithms on
+all types of data is fundamentally flawed.  Indeed, the ``No Free Lunch
+Theorems'' provides bounds on solution quality that show otherwise
+i.e. it specifically demonstrates that ``improvement of performance 
+in problem-solving
+hinges on using prior information to match procedures to
+problems'' \citep{Wolpert1997}. Therefore, the first thing that 
+authors of new algorithms should do is
+identify how their methods differ with respect to other
+available techniques in terms of the use of prior knowledge.  Furthermore,
+the author must consider if it is possible to incorporate similar prior
+knowledge into existing methods.
+
+\subsubsection{Demand that the algorithm developers 
+provide default parameters for the comparative context being investigated}
+
+Expert knowledge of a specific program and/or algorithm is most
+likely found with the original developers who would be in a position to
+provide optimal parameterization.  To help this procedure be fruitful,
+one should be willing to share example datasets.  Sharing data with
+algorithm developers allows the developers to facilitate
+comparisons by providing relevant parameter files and sample scripts
+that detail command line calls.  For example, the developers of
+the image registration program elastix \citep{klein2010} provide an
+assortment of parameter files on the wiki page%
+\footnote{
+  http://elastix.bigr.nl/wiki/index.php/Parameter\_file\_database
+}
+listed in tabular format complete with short
+description (including applied modality and object of interest) and
+any publications which used that specific parameter file.  Another example is the National Alliance for Medical Image Computing registration use case inventory%
+\footnote{
+http://www.na-mic.org/Wiki/index.php/Projects:RegistrationDocumentation:UseCaseInventory
+}
+where each listed case comprises a test dataset, a guided step-by-step tutorial, the solution, and a custom Registration Parameter Presets file with optimized registration parameters.
+
+\subsubsection{Do not implement your own version of the algorithm particularly
+if one is available from the original authors.
+If you must re-implement, consider making your implementation available}
+
+Much is left unstated in published manuscripts where 
+novel algorithmic concepts are presented.  Ideally, the authors 
+provide an instantiation of the code to accompany the 
+manuscript.  As observed in \cite{kovacevic2006}, however,
+this is often not the case (even in terms of pseudocode).
+As a result, comparative evaluations are sometimes carried out using
+code developed not by the original authors but by the
+group doing the comparison.   For
+example, in \cite{clarkson2011}, the authors compared three algorithms
+for estimating cortical thickness.  Two of the algorithms were
+coded by the authors of the study while the third was used ``off the shelf'' 
+having been extensively
+tuned and well-documented by the original authors.
+Thus, a natural question to ask is whether the performance difference
+is due to the algorithm itself, implementation quality, and/or the parameter 
+tuning.  None of these are addressed by \cite{clarkson2011} which may decrease the publication's usefulness.
+
+
+\subsubsection{Comparisons should be performed on publicly available data}
+For reasons of reproducibility and transparency, evaluations should be performed
+using publicly available data sets.  Given the rather large number
+of such institutional efforts including
+NIREP,%
+\footnote{
+http://www.nirep.org
+}
+IXI,%
+\footnote{
+http://www.brain-development.org
+}
+NKI,%
+\footnote{
+http://fcon\_1000.projects.nitrc.org/indi/pro/nki.html
+}
+OASIS,%
+\footnote{
+http://www.oasis-brains.org
+}
+Kirby,%
+\footnote{
+http://mri.kennedykrieger.org/databases.html
+},
+LONI,%
+\footnote{
+http://www.loni.ucla.edu/Research/Databases/
+}, and
+others, evaluations should include (if not be exhausted by)
+comparisons using such data.  While evaluation on private cohorts
+might exclude such possibilities, such evaluations should
+be extensively motivated in the introduction and/or discussion.
+For example, if a particular algorithm with general application is
+found to perform better
+on a private cohort of Parkinson's disease subject data, reasons
+for performance disparity should be offered and supplemented with
+analysis on public data.
+
+\subsection{Publishing the evaluation}
+
+\subsubsection{Include parameters}
+In \cite{klein2009},
+14 nonlinear registration algorithms were compared using
+four publicly available, labeled brain MRI data sets.
+As part of the study, the respective algorithms' authors tuned
+the parameters to ensure good
+performance which were then distributed 
+on Prof. Klein's website.%
+\footnote{
+http://mindboggle.info/papers/evaluation\_NeuroImage2009.php
+}
+In contrast, not specifying parameters
+leaves one susceptible to criticisms of confirmation and/or
+instrumentation bias \citep{sackett1979}.  For example, in
+a recent paper \citep{haegelen2013} (similar issues can
+be found in \cite{luo2013,wu2013}), the authors compared
+their ANIMAL registration algorithm with SyN \citep{avants2011} and determined
+that ``registration with ANIMAL was better than with SyN for
+the left thalamus'' in a cohort of Parkinson's disease patients.
+Given the authors extensive experience and investment with ANIMAL, 
+the reader can assume some confidence in minimal instrumentation 
+bias although inclusion of the specific ANIMAL parameters used
+would be informative and preferred.  For SyN, however, we do not
+have equivalent assurance of experience with the algorithm nor
+are any parameters listed for independent verification
+by reviewers or readers of the article.
+
+
+\subsubsection{Provide details as to the source of the algorithm}
+Origin 
+should be provided for any code or package used during the
+evaluation.  For example, N4 \citep{tustison2010} is a well-known
+bias correction algorithm first made available as a tech report
+ \citep{tustison2009a}.  However, since
+its inclusion in the Insight Toolkit, different instantiations 
+have been made available. N4 is also available in ANTs (the only 
+version directly maintained by the original authors), as a module in Slicer,%
+\footnote{
+http://www.slicer.org/slicerWiki/index.php/Documentation/4.2/Modules/N4ITKBiasFieldCorrection
+}
+a wrapper of the Slicer module in nipype,%
+\footnote{
+http://www.mit.edu/~satra/nipype-nightly/interfaces/generated/nipype.interfaces.slicer.filtering.n4itkbiasfieldcorrection.html
+}
+a module in \verb!c3d!,%
+\footnote{
+http://www.itksnap.org8/pmwiki/pmwiki.php?n=Convert3D.Documentation
+}
+and as a plugin in the BRAINS suite.%
+\footnote{
+http://www.nitrc.org/plugins/mwiki/index.php/brains:N4ITK
+}
+While each version is dependent on the original source
+code, there could exist subtle variations which can affect performance.
+As one specific example, the \verb!c3d!
+implementation hard-codes
+certain parameter values with no access to modify them by
+the user.
+
+\subsubsection{Co-authors should verify findings}
+
+Although different journals have varying guidelines for determining
+co-authorship, there is at least an implied sense of responsibility for
+an article's contents assumed by each of the co-authors.  Strategies
+taken by journal editorial boards are used to reduce undeserving
+authorship attribution such as requiring the listing of the specific
+contributions of each co-author.  Additional proposals have included
+signed statements of responsibility for the contents of an article
+\citep{nature2007}.  We suggest that at least one co-author
+independently verify a subset of the results by running the
+data processing and analysis
+on their own computational platform.   
+The point of this exercise is to verify not only
+reproducibility but also that the process can be explained in
+sufficient detail.
+
+\subsubsection{Provide computational platform details of the evaluation}
+A recent article \citep{gronenschild2012} pointed out significant
+differences in FreeSurfer output that varied with  release
+version and with operating systems.  While the former is to be
+expected given upgrades and bug fixes which occur between releases,
+the latter underscores both the need for consistency in study processing
+as well as the reporting of computational details for reproducibility.
+
+\subsubsection{Supply pre- and post-processing steps}
+In addition to disclosure of all parameters associated with the
+methods to be compared, all processing steps from the raw
+to the final processed images in the workflow
+need to be specified.    
+Tools like the nipype \citep{gorgolewski2011} capture
+this provenance information in a formal and rigorous way, but at
+a minimum the shell scripts or screen shots of the parameter choices
+should be made available.
+Justification for any deviation
+of steps between algorithms needs to be provided.  Additionally,
+failures during processing should be mentioned and whether
+or not these data were excluded from subsequent analysis.
+
+
+\subsubsection{Post the resulting data online}
+
+The current publishing paradigm limits the quantity of
+results that can be posted.  There are only so many pages
+allowed for a particular publication and displaying every
+slice of every processed image, for example, is not feasible.
+This results in possible selection bias where results provided
+in the manuscript are selected by the authors for demonstrating
+the effect postulated at the onset of the study.  Thus, differences
+in performance assessment tend to be exaggerated based strictly
+on visual representations in the paper.
+Publication simply in print (or as figures in a PDF file) and
+its limitations in terms of dynamic range or spatial resolution also
+severely limits the ability of reviewers and readers to perform more
+sophisticated evaluation beyond simple visual inspection.
+
+Alternatively (or additionally), online resources such as the
+the LONI Segmentation Validation Engine \citep{shattuck2009}%
+\footnote{
+http://sve.loni.ucla.edu
+}
+can be used to evaluate individual algorithms
+for brain segmentation on publicly available
+data sets and compare with previously posted results.  A top ranking
+outcome provides significant external validation for publishing newly
+proposed methodologies (e.g. \cite{eskildsen2012}).
+
+%fisher
+
+\subsubsection{Put comparisons and observed performance differences into context}
+In addition to algorithmic and study specifics, it is important to
+discuss potential limitations concerning qualitative and/or quantitative
+assessment metrics.  In \cite{rohlfing2012}, the author pointed out
+deficiencies in using standard overlap measures and image similarity
+metrics in quantifying performance of image registration methods.  Other issues, such as biological
+plausibility of the resulting transforms, need to also be considered.
+Also important for inclusion is discussion on the possible reasons for performance
+disparity.  If one algorithm outperforms another, reporting of those findings
+would be much more significant if the authors discussed possible reasons
+for relative  performance levels.  
+
+\section{Conclusion}
+Considering that computational sciences permeate neuroimaging research, 
+certain safeguards should be in place to prevent
+(or at least minimize) potential biases and errors that can
+unknowingly effect study outcomes.  There is no vetting agency for
+ensuring that analysis programs used for research are reasonably error-free.
+In addition, these software packages are simply ``black
+boxes'' to many researchers who are not formally trained to debug
+code, and who, in most cases, have only a
+very superficial understandings of the algorithms that they apply.  And even
+to those of us who are, understanding someone else's code, perhaps
+implemented in an unfamiliar programming language and poor coding style, 
+is oftentimes very difficult.  To this end, algorithmic comparisons are
+a very good way of evaluating general performance.  We hope that the
+guidelines proposed in this editorial help the community
+in future comparative assessments and avoid errors in scientific computing that
+may otherwise lead to publication of invalid results \citep{merali2010}.
+
+%% References with bibTeX database:
+
+
+\bibliographystyle{frontiersinSCNS}
+%\bibliographystyle{plain}
+\bibliography{references}
+
+
+\end{document}
+
