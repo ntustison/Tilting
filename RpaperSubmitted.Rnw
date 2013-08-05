@@ -15,7 +15,7 @@
 \def\keyFont{\fontsize{8}{11}\helveticabold }
 \def\firstAuthorLast{Tustison {et~al.}} %use et al only if is more than 1 author
 \def\Authors{Nicholas J. Tustison\,$^{1,*}$, Hans Johnson\,$^{2}$, Torsten Rohlfing\,$^{3}$,
-Arno Klein\,$^{4}$, Satrajit Ghosh\,$^{5}$, Luis Ibanez\,$^{6}$, and Brian A. Avants\,$^{7}$
+Arno Klein\,$^{4}$, Satrajit Ghosh\,$^{5}$, Luis Ibanez\,$^{6}$, and Brian B. Avants\,$^{7}$
  }
 % Affiliations should be keyed to the author's name with superscript numbers and be listed as follows: Laboratory, Institute, Department, Organization, City, State abbreviation (USA, Canada, Australia), and Country (without detailed address information such as city zip codes or street names).
 % If one of the authors has a change of address, list the new address below the correspondence details using a superscript symbol and use the same symbol to indicate the author in the author list.
@@ -83,7 +83,7 @@ reviewers minimize the occurrence of this type of bias as it applies to
 computational methods using the imaging sciences as an example.
 \tiny
 \keyFont{ \section{Keywords:} 
-open science best practices comparison reproducibility software }
+best practices, open science, comparative evaluations, confirmation bias, reproducibility}
 \end{abstract}
 
 
