@@ -134,7 +134,9 @@ fair comparison of algorithms which, in principle, is
 a good thing.  Our concern is the lack of detail with 
 which these comparisons are
 often presented and the corresponding possibility of {\it instrumentation
-bias} \citep{sackett1979} (considering software  as a type of
+bias} \citep{sackett1979} whereby ``defects in the calibration of measurement
+instruments may lead to systematic deviations from true values'' 
+(considering software  as a type of
 instrument requiring proper ``calibration'' for accurate measurements).
 Based on our experience (including our own mistakes),
 we propose a preliminary set of guidelines that seek to minimize such bias
@@ -172,7 +174,7 @@ problems'' \citep{Wolpert1997}. Therefore, the first thing that
 authors of new algorithms should do is
 identify how their methods differ with respect to other
 available techniques in terms of the use of prior knowledge.  Furthermore,
-the author must consider if it is possible to incorporate prior
+the author must consider if it is possible to incorporate prior knowledge
 across existing methods.
 
 \subsubsection{Demand that the algorithm developers 
@@ -273,8 +275,11 @@ http://mindboggle.info/papers/evaluation\_NeuroImage2009.php
 In contrast, not specifying parameters
 leaves one susceptible to criticisms of confirmation and/or
 instrumentation bias \citep{sackett1979}.  For example, in
-a recent paper \citep{haegelen2013} (similar issues can
-be found in \cite{luo2013,wu2013}), the authors compared
+a recent paper \citep{haegelen2013}%
+\footnote{
+Similar issues can be found in \cite{luo2013} and \cite{wu2013}.
+}, 
+the authors compared
 their ANIMAL registration algorithm with SyN \citep{avants2011} and determined
 that ``registration with ANIMAL was better than with SyN for
 the left thalamus'' in a cohort of Parkinson's disease patients.
@@ -288,7 +293,8 @@ by reviewers or readers of the article.
 Origin 
 should be provided for any code or package used during the
 evaluation.  For example, N4 \citep{tustison2010} is a well-known
-bias correction algorithm first made available as a tech report
+inhomogeneity correction algorithm for magnetic resonance imaging
+first made available as a tech report
  \citep{tustison2009a}.  However, since
 its inclusion in the Insight Toolkit, different programs 
 have been made available. N4 is also available in ANTs (the only 
