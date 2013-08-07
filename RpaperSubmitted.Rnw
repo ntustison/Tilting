@@ -182,7 +182,7 @@ across existing methods.
 provide default parameters for the comparative context being investigated}
 
 Expert knowledge of a specific program and/or algorithm is most
-likely found with the original developers[,] who would be in a position to
+likely found with the original developers who would be in a position to
 provide optimal parameterization.  Relevant parameter files and sample scripts
 that detail command line calls should accompany an algorithm to aid in 
 its proper use, evaluation, and comparison.  For example, the developers of
