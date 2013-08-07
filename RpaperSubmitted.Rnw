@@ -59,7 +59,7 @@ software: Recommendations for reproducible practices in the computational scienc
 
 \begin{abstract}
 \section{}
-Current science relies heavily on software resource. 
+Current science relies heavily on software resources. 
   A standard part of developing and vetting new
 approaches to data processing and analysis involves comparison with other methods previously
 established within the community.  Public availability of established packages has significantly
