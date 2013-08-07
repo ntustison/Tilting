@@ -134,7 +134,8 @@ fair comparison of algorithms which, in principle, is
 a good thing.  Our concern is the lack of detail with 
 which these comparisons are
 often presented and the corresponding possibility of {\it instrumentation
-bias} \citep{sackett1979} whereby ``defects in the calibration of measurement
+bias} \citep{sackett1979} whereby ``defects in the calibration or maintenance 
+of measurement
 instruments may lead to systematic deviations from true values'' 
 (considering software  as a type of
 instrument requiring proper ``calibration'' for accurate measurements).
